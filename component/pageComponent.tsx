@@ -1,7 +1,10 @@
+// Forcing nextJS to render this component as client side component
+'use client';
+
 // Importing part
 import {ReactNode} from "react";
 import useUserLoggedIn from "@/hook/useUserLoggedIn";
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 
 // Defining type of props
 type propsType = {
