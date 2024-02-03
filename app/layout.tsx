@@ -23,7 +23,7 @@ export const metadata:Metadata = {
     openGraph: {
         title: 'I Will Be Good - Your medic(t)ation reminder and tracker',
         description: 'Welcome to MedTrack & Meditate, your go-to application for tracking and reminding medications and guiding you through daily meditations. This app is designed to help you maintain a healthy routine by managing your medications and incorporating mindfulness practices into your daily life.',
-        images: './public/img/img-logo-192.png',
+        images: './public/img/logo/img-logo-192.png',
         url: 'https://iwillbegood.vercel.app/'
     }
 }
