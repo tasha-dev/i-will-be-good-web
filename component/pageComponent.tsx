@@ -22,25 +22,21 @@ export default function PageComponent({children, loginRequired}:propsType):React
     // Checking if user is logged in
     const isUserLoggedIn:boolean = useUserLoggedIn();
 
-    // Conditional rendering
-    if (loginRequired) {
-        if (!isUserLoggedIn) {router.push('/signIn')}
-        else {
-            return (
-                <div className={'overflow-x-hidden bg-white'}>
-                    <HeaderComponent isUserLoggedIn={isUserLoggedIn} />
-                    {children}
-                    <FooterComponent />
-                </div>
-            );
-        }
-    } else {
+    // Creating small inner component for returned elements
+    function ReturnedElements():ReactNode {
+        // Returning JSX
         return (
-            <div className={'overflow-x-hidden bg-white'}>
+            <>
                 <HeaderComponent isUserLoggedIn={isUserLoggedIn} />
                 {children}
                 <FooterComponent />
-            </div>
+            </>
         );
     }
+
+    // Conditional rendering
+    if (loginRequired) {
+        if (!isUserLoggedIn) {router.push('/signIn')}
+        else {return <ReturnedElements />}
+    } else {return <ReturnedElements /> }
 }

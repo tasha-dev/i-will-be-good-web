@@ -3,13 +3,18 @@ import {ReactNode} from "react";
 import ContainerComponent from "@/chunk/containerComponent";
 import TitleComponent from "@/chunk/titleComponent";
 import ParagraphComponent from "@/chunk/paragraphComponent";
+import Image from "next/image";
+import greenLightImg from '@/public/img/page/home/light/img-light-green.svg';
+import blueLightImg from '@/public/img/page/home/light/img-light-blue.svg';
 
 // Creating and exporting first section of not logged in home page as default
 export default function FirstSectionComponent():ReactNode {
     // Returning JSX
     return (
         <section>
-            <main>
+            <main className={'relative'}>
+                <Image src={blueLightImg} alt={''} width={750} height={750} className={'lg:block hidden absolute opacity-50 top-0 left-0 -translate-y-[30%] -translate-x-[50%]'} />
+                <Image src={greenLightImg} alt={''} width={1000} height={1000} className={'lg:block hidden absolute opacity-50 top-[200px] right-0 translate-x-[50%]'} />
                 <ContainerComponent className={'lg:flex lg:items-center lg:justify-center lg:min-h-screen'}>
                     <div>
                         <TitleComponent color={'text-themeGreen'} tier={1} className={'lg:text-center text-left'}>
