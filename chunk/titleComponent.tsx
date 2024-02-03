@@ -6,7 +6,7 @@ import {ReactNode} from "react";
 interface propsType {
     color: `text-${string}`;
     tier: 1 | 2 | 3;
-    children: string;
+    children: ReactNode;
     className?: string;
     noMarginBottom?: boolean;
 }

@@ -12,7 +12,7 @@ interface propsType { isUserLoggedIn: boolean; }
 export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
     // Returning JSX
     return (
-        <header>
+        <header className={'lg:absolute top-0 left-0 w-full'}>
             <ContainerComponent className={
                 (isUserLoggedIn)
                     ? 'flex items-center justify-center'

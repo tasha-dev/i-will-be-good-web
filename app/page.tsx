@@ -3,8 +3,8 @@
 import {ReactNode} from "react";
 import PageComponent from "@/component/pageComponent";
 import useUserLoggedIn from "@/hook/useUserLoggedIn";
-import HomeNotLoggedIn from "@/component/innerPage/homeNotLoggedIn";
-import HomeLoggedIn from "@/component/innerPage/homeLoggedIn";
+import HomeNotLoggedIn from "@/component/innerPage/notLoggedIn/homeNotLoggedIn";
+import HomeLoggedIn from "@/component/innerPage/loggedIn/homeLoggedIn";
 
 // Creating and exporting home page as default
 export default function HomePage():ReactNode {
