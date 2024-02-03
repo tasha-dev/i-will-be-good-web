@@ -13,7 +13,11 @@ export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
     // Returning JSX
     return (
         <header>
-            <ContainerComponent className={'flex items-center justify-between gap-[20px]'}>
+            <ContainerComponent className={
+                (isUserLoggedIn)
+                    ? 'flex items-center justify-center'
+                    : 'flex items-center lg:justify-between justify-center gap-[20px]'
+            }>
                 <Image
                     alt={'Logo of I Will Be Good'}
                     src={lotusImg.src}
@@ -24,6 +28,7 @@ export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
                     (!isUserLoggedIn)
                         ? (
                             <ButtonComponent
+                                classNameProp={'lg:flex hidden'}
                                 href={'/login'}
                                 role={"primary"}
                             >
