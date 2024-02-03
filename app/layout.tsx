@@ -3,11 +3,11 @@
 import {ReactNode} from "react";
 import {Metadata} from "next";
 import {NextFont} from "next/dist/compiled/@next/font";
-import {JetBrains_Mono} from "next/dist/compiled/@next/font/dist/google";
+import { JetBrains_Mono } from 'next/font/google';
 
 // Defining font
 const JetbrainsMonoFont:NextFont = JetBrains_Mono({
-    display: "swap",
+    display: "auto",
     style: 'normal',
     subsets: ['latin'],
     weight: ['300', '500', '700', '800']
@@ -35,7 +35,7 @@ export default function RootLayoutComponent({children}:propsType):ReactNode {
     // Returning JSX
     return (
         <html>
-            <body className={`overflow-x-hidden bg-white ${JetbrainsMonoFont}`}>
+            <body className={`overflow-x-hidden bg-white ${JetbrainsMonoFont.className}`}>
                 {children}
             </body>
         </html>
