@@ -19,7 +19,9 @@ const config: Config = {
     extend: {
       colors: {
         themeGreen: '#66CC99',
-        themeBlue: '#6699CC'
+        darkThemeGreen: '#56a980',
+        themeBlue: '#6699CC',
+        darkThemeBlue: '#537ba2'
       }
     }
   },

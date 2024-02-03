@@ -7,18 +7,21 @@ import Link from "next/link";
 type propsType = {
     children: string;
     role: 'primary' | 'secondary';
-    link?: string;
+    href: string;
 };
 
 // Creating and exporting button component as default
-export default function ButtonComponent({children, role, link = ''}: propsType): ReactNode {
+export default function ButtonComponent({children, role, href = ''}: propsType): ReactNode {
+    // Defining classNames
+    const className:string = 'px-[30px] block py-[10px] text-white transition duration-500 data-[role="primary"]:bg-themeBlue data-[role="primary"]:hover:bg-darkThemeBlue data-[role="secondary"]:bg-themeGreen data-[role="secondary"]:hover:bg-darkThemeGreen';
+
     // Conditional rendering
-    if (link !== '') {
+    if (href !== '') {
         return (
             <Link
-                href={link}
+                href={href}
                 data-role={role}
-                className={''}
+                className={className}
             >
                 {children}
             </Link>
@@ -27,7 +30,7 @@ export default function ButtonComponent({children, role, link = ''}: propsType):
         return (
             <button
                 data-role={role}
-                className={''}
+                className={className}
             >
                 {children}
             </button>

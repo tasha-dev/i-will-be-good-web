@@ -12,22 +12,19 @@ type propsType = { isUserLoggedIn: boolean; }
 export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
     // Returning JSX
     return (
-        <header
-            data-logged-in={isUserLoggedIn}
-            className={''}
-        >
-            <ContainerComponent>
+        <header>
+            <ContainerComponent className={'flex items-center justify-between gap-[20px]'}>
                 <Image
                     alt={'Logo of I Will Be Good'}
                     src={lotusImg.src}
-                    width={50}
-                    height={50}
+                    width={70}
+                    height={70}
                 />
                 {
                     (!isUserLoggedIn)
                         ? (
                             <ButtonComponent
-                                link-={'/login'}
+                                href={'/login'}
                                 role={"primary"}
                             >
                                 Log In
