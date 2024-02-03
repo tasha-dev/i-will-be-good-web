@@ -3,7 +3,7 @@
 import {ReactNode} from "react";
 
 // Defining type of props
-type propsType = {
+interface propsType {
     children: ReactNode;
     className?: string;
 };

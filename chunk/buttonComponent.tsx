@@ -4,7 +4,7 @@ import {ReactNode} from "react";
 import Link from "next/link";
 
 // Defining type of props
-type propsType = {
+interface propsType {
     children: string;
     role: 'primary' | 'secondary';
     href: string;

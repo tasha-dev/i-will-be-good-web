@@ -6,7 +6,7 @@ import ButtonComponent from "@/chunk/buttonComponent";
 import ContainerComponent from "@/chunk/containerComponent";
 
 // Defining type of props
-type propsType = { isUserLoggedIn: boolean; }
+interface propsType { isUserLoggedIn: boolean; }
 
 // Creating and exporting header component as default
 export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {

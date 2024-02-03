@@ -6,6 +6,7 @@ import {ReactNode} from "react";
 import useUserLoggedIn from "@/hook/useUserLoggedIn";
 import {useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
+import FooterComponent from "@/component/footerComponent";
 
 // Defining type of props
 type propsType = {
@@ -29,6 +30,7 @@ export default function PageComponent({children, loginRequired}:propsType):React
                 <div className={'overflow-x-hidden bg-white'}>
                     <HeaderComponent isUserLoggedIn={isUserLoggedIn} />
                     {children}
+                    <FooterComponent />
                 </div>
             );
         }
@@ -37,6 +39,7 @@ export default function PageComponent({children, loginRequired}:propsType):React
             <div className={'overflow-x-hidden bg-white'}>
                 <HeaderComponent isUserLoggedIn={isUserLoggedIn} />
                 {children}
+                <FooterComponent />
             </div>
         );
     }

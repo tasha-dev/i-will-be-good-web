@@ -29,7 +29,7 @@ export const metadata:Metadata = {
 }
 
 // Defining type of props, of root layout component
-type propsType = { children: ReactNode; }
+interface propsType { children: ReactNode; }
 
 // Creating and exporting root layout component as default
 export default function RootLayoutComponent({children}:propsType):ReactNode {
