@@ -3,7 +3,8 @@
 import {ReactNode} from "react";
 import {Metadata} from "next";
 import {NextFont} from "next/dist/compiled/@next/font";
-import { JetBrains_Mono } from 'next/font/google';
+import {JetBrains_Mono} from 'next/font/google';
+import './index.css';
 
 // Defining font
 const JetbrainsMonoFont:NextFont = JetBrains_Mono({
