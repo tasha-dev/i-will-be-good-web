@@ -5,6 +5,7 @@ import FirstSectionComponent from '@/component/innerPage/notLoggedIn/section/fir
 import SecondSectionComponent from "@/component/innerPage/notLoggedIn/section/secondSectionComponent";
 import ThirdSectionComponent from "@/component/innerPage/notLoggedIn/section/thirdSectionComponent";
 import FourthSectionComponent from "@/component/innerPage/notLoggedIn/section/fourthSectionComponent";
+import FifthSectionComponent from "@/component/innerPage/notLoggedIn/section/fifthSectionComponent";
 
 // Creating and exporting not logged in home page as default
 export default function HomeNotLoggedIn():ReactNode {
@@ -15,6 +16,7 @@ export default function HomeNotLoggedIn():ReactNode {
             <SecondSectionComponent />
             <ThirdSectionComponent />
             <FourthSectionComponent />
+            <FifthSectionComponent />
         </>
     );
 }
