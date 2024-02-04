@@ -12,7 +12,7 @@ export default function FirstSectionComponent():ReactNode {
     // Returning JSX
     return (
         <section>
-            <main className={'relative lg:h-screen overflow-hidden'}>
+            <main className={'relative lg:h-screen'}>
                 <Image src={blueLightImg} alt={''} width={1000} height={1000} className={'lg:block hidden pointer-events-none aspect-square w-[30vw] absolute opacity-50 top-0 left-0 -translate-y-[30%] -translate-x-[50%]'} />
                 <Image src={greenLightImg} alt={''} width={1000} height={1000} className={'lg:block hidden pointer-events-none aspect-square w-[50vw] absolute opacity-50 top-[200px] right-0 translate-x-[50%]'} />
                 <ContainerComponent className={'lg:flex lg:items-center lg:justify-center lg:min-h-screen'}>
