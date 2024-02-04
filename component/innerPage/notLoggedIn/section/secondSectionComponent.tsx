@@ -21,12 +21,9 @@ export default function SecondSectionComponent():ReactNode {
                         src={mainImage.src}
                         className={'lg:w-[50%] text-gray-600 lg:h-auto h-[250px] w-full lg:aspect-square object-cover'}
                     />
-                    <div>
+                    <div className={'lg:w-[50%]'}>
                         <TitleComponent color={'text-themeBlue'} tier={1}>Pillar of Health</TitleComponent>
-                        <ParagraphComponent color={'text-gray-500'} lineClamp={2}>
-                            In our journey toward well-being, medications often play a crucial role in managing and enhancing our health.Understanding the intricacies of medications can be daunting, but it's a vital aspect of self-care. <br/>
-                            From prescription routines to over-the-counter remedies, each pill represents a potential stride towards improved health.
-                        </ParagraphComponent>
+                        <ParagraphComponent color={'text-gray-500'}>In our journey toward well-being, medications often play a crucial role in managing and enhancing our health.Understanding the intricacies of medications can be daunting, but it's a vital aspect of self-care. From prescription routines to over-the-counter remedies, each pill represents a potential stride towards improved health.</ParagraphComponent>
                     </div>
                 </ContainerComponent>
             </main>

@@ -13,18 +13,15 @@ export default function ThirdSectionComponent():ReactNode {
     return (
         <section>
             <main>
-                <ContainerComponent className={'lg:flex-row flex-col flex items-center gap-[20px]'}>
-                    <div>
-                        <TitleComponent color={'text-themeBlue'} tier={1}>Pillar of Health</TitleComponent>
-                        <ParagraphComponent color={'text-gray-500'} lineClamp={2}>
-                            In our journey toward well-being, medications often play a crucial role in managing and enhancing our health.Understanding the intricacies of medications can be daunting, but it's a vital aspect of self-care. <br/>
-                            From prescription routines to over-the-counter remedies, each pill represents a potential stride towards improved health.
-                        </ParagraphComponent>
+                <ContainerComponent className={'lg:flex-row flex-col-reverse flex items-center gap-[20px]'}>
+                    <div className={'lg:w-[50%]'}>
+                        <TitleComponent color={'text-themeBlue'} className={'lg:text-right text-left'} tier={1}>Mindful Oasis</TitleComponent>
+                        <ParagraphComponent color={'text-gray-500'} className={'lg:text-right text-left'}>In the fast-paced rhythm of our modern lives, finding moments of stillness becomes increasingly essential for holistic well-being. Enter the world of meditation, a transformative practice that goes beyond the quieting of the mind. It's a journey inward, a conscious exploration of the self, and a commitment to mindfulness.</ParagraphComponent>
                     </div>
                     <Image
                         width={500}
                         height={200}
-                        alt={'Image of some medications'}
+                        alt={'Image of woman meditating'}
                         src={mainImage.src}
                         className={'lg:w-[50%] text-gray-600 lg:h-auto h-[250px] w-full lg:aspect-square object-cover'}
                     />
