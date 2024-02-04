@@ -23,7 +23,8 @@ export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
     return (
         <header
             data-scrolled={isScrolled}
-            className={'lg:fixed top-0 left-0 w-full z-10 transition-all duration-500 lg:shadow-xl lg:data-[scrolled="true"]:bg-white lg:data-[scrolled="true"]:shadow-black/5 lg:data-[scrolled="false"]:bg-transparent lg:data-[scrolled="false"]:shadow-transparent'}
+            data-logged-in={isUserLoggedIn}
+            className={'data-[logged-in="false"]:lg:fixed top-0 left-0 w-full z-10 transition-all duration-500 lg:shadow-xl lg:data-[scrolled="true"]:bg-white lg:data-[scrolled="true"]:shadow-black/5 lg:data-[scrolled="false"]:bg-transparent lg:data-[scrolled="false"]:shadow-transparent'}
         >
             <ContainerComponent noPaddingY className={
                 (isUserLoggedIn)
