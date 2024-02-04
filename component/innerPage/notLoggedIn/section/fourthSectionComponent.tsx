@@ -12,7 +12,7 @@ export default function FourthSectionComponent():ReactNode {
     // Returning JSX
     return (
         <section className={'overflow-hidden'}>
-            <main className={'relative lg:h-[500px] h-[300px]'}>
+            <div className={'relative lg:h-[500px] h-[300px]'}>
                 <Image
                     alt={'Image of a man standing on top of mountain'}
                     src={mainImage.src}
@@ -22,16 +22,23 @@ export default function FourthSectionComponent():ReactNode {
                 />
                 <ContainerComponent className={'lg:h-[500px] h-[300px] lg:flex lg:items-center lg:justify-center'}>
                     <div>
-                        <TitleComponent color={'text-gray-500'} tier={1} className={'lg:text-center text-left'}>
-                            The Power of br
-                            Small Daily Wins
-                        </TitleComponent>
-                        <ParagraphComponent color={'text-white'} className={'lg:text-center text-left'}>
-                            Consistency is the silent architect of success, shaping our lives with each small, intentional action. In the pursuit of our goals, whether in health, productivity, or personal development, it is the unwavering commitment to daily rituals that propels us forward.
-                        </ParagraphComponent>
+                        <header>
+                            <TitleComponent color={'text-gray-500'} tier={1} className={'lg:text-center text-left'}>
+                                The Power of br
+                                Small Daily Wins
+                            </TitleComponent>
+                        </header>
+                        <main>
+                            <ParagraphComponent color={'text-white'} className={'lg:text-center text-left'}>
+                                Consistency is the silent architect of success, shaping our lives with each small,
+                                intentional action. In the pursuit of our goals, whether in health, productivity, or
+                                personal development, it is the unwavering commitment to daily rituals that propels us
+                                forward.
+                            </ParagraphComponent>
+                        </main>
                     </div>
                 </ContainerComponent>
-            </main>
+            </div>
         </section>
     );
 }
