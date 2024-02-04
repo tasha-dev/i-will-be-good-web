@@ -12,7 +12,7 @@ export default function FourthSectionComponent():ReactNode {
     // Returning JSX
     return (
         <section className={'overflow-hidden'}>
-            <div className={'relative lg:h-[500px] h-[300px]'}>
+            <div className={'relative lg:min-h-[500px] min-h-[300px]'}>
                 <Image
                     alt={'Image of a man standing on top of mountain'}
                     src={mainImage.src}
@@ -20,7 +20,7 @@ export default function FourthSectionComponent():ReactNode {
                     height={500}
                     className={'w-full h-full absolute top-0 left-0 blur-xl -z-10 scale-110'}
                 />
-                <ContainerComponent className={'lg:h-[500px] h-[300px] lg:flex lg:items-center lg:justify-center'}>
+                <ContainerComponent className={'lg:min-h-[500px] min-h-[300px] lg:flex lg:items-center lg:justify-center'}>
                     <div>
                         <header>
                             <TitleComponent color={'text-gray-500'} tier={1} className={'lg:text-center text-left'}>
