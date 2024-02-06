@@ -2,6 +2,7 @@
 // Importing part
 import {ReactNode} from "react";
 import FirstSectionComponent from "@/component/innerPage/loggedIn/section/firstSectionComponent";
+import SecondSectionComponent from "@/component/innerPage/loggedIn/section/secondSectionComponent";
 
 // Creating and exporting logged in home page as default
 export default function HomeLoggedIn():ReactNode {
@@ -9,6 +10,7 @@ export default function HomeLoggedIn():ReactNode {
     return (
         <>
             <FirstSectionComponent />
+            <SecondSectionComponent />
         </>
     );
 }
