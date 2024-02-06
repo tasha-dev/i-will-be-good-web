@@ -15,8 +15,7 @@ interface propsType {
 // Creating and exporting button component as default
 export default function ButtonComponent({children, role, href = '', classNameProp, theme}: propsType): ReactNode {
     // Defining classNames
-    const className:string = `
-        px-[30px] py-[10px] text-white transition duration-500 
+    const className:string = `px-[30px] py-[10px] text-white transition duration-500 
         ${(classNameProp) ? `${classNameProp}` : ''} 
         ${
             (role === 'primary') 

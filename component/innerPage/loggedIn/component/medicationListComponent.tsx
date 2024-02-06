@@ -19,7 +19,7 @@ interface propsType {
 export default function MedicationListComponent({list}:propsType):ReactNode {
     // Returning JSX
     return (
-        <div className={'rounded-[20px] bg-themeBlue h-[300px] flex flex-col overflow-hidden'}>
+        <div className={'rounded-[20px] bg-themeBlue lg:h-auto h-[300px] flex flex-col overflow-hidden'}>
             <div className={'shrink-0 px-[20px] pt-[20px] mb-[10px]'}>
                 <TitleComponent noMarginBottom color={'text-white'} tier={2}>Medications (Today):</TitleComponent>
             </div>
