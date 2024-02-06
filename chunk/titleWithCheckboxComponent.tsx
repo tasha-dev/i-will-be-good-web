@@ -19,8 +19,8 @@ export default function TitleWithCheckboxComponent({title, isChecked, date, them
         <div className={'flex items-center gap-[10px] w-full'}>
             <CheckboxComponent isChecked={isChecked} theme={theme} />
             <div className={'w-[calc(100%-50px-10px)]'}>
-                <TitleComponent noMarginBottom className={'truncate w-full block'} color={'text-white'} tier={3}>{title}</TitleComponent>
-                <TitleComponent noMarginBottom className={'truncate w-full block'} color={'text-gray-300'} tier={3}>{date.toDateString()}</TitleComponent>
+                <TitleComponent noMarginBottom className={'truncate w-full block'} color={(theme === 'white') ? 'text-white' : 'text-themeBlue'} tier={3}>{title}</TitleComponent>
+                <TitleComponent noMarginBottom className={'truncate w-full block'} color={(theme === 'white') ? 'text-gray-300' : 'text-gray-500'} tier={3}>{date.toDateString()}</TitleComponent>
             </div>
         </div>
     );
