@@ -16,11 +16,11 @@ interface propsType {
 export default function TitleWithCheckboxComponent({title, isChecked, date, theme}:propsType):ReactNode {
     // Returning JSX
     return (
-        <div className={'flex items-center gap-[10px]'}>
+        <div className={'flex items-center gap-[10px] w-full'}>
             <CheckboxComponent isChecked={isChecked} theme={theme} />
-            <div className={'flex items-center justify-between gap-[20px] w-full'}>
-                <TitleComponent className={'truncate shrink-0'} color={'text-white'} tier={3}>{title}</TitleComponent>
-                <TitleComponent className={'truncate shrink-0'} color={'text-gray-500'} tier={3}>{date.toDateString()}</TitleComponent>
+            <div className={'w-[calc(100%-50px-10px)]'}>
+                <TitleComponent noMarginBottom className={'truncate w-full block'} color={'text-white'} tier={3}>{title}</TitleComponent>
+                <TitleComponent noMarginBottom className={'truncate w-full block'} color={'text-gray-300'} tier={3}>{date.toDateString()}</TitleComponent>
             </div>
         </div>
     );

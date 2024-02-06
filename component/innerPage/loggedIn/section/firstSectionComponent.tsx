@@ -10,7 +10,7 @@ export default function FirstSectionComponent():ReactNode {
     return (
         <section>
             <main>
-                <ContainerComponent className={"grid grid-cols-2 gap-[20px]"}>
+                <ContainerComponent className={"lg:grid-cols-2 grid-cols-1 grid gap-[20px]"}>
                     <MedicationListComponent list={[{
                         name: 'Fluvoxamine',
                         date: new Date(),
