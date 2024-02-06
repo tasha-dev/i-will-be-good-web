@@ -41,6 +41,7 @@ export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
                     (!isUserLoggedIn)
                         ? (
                             <ButtonComponent
+                                theme={'blue'}
                                 classNameProp={'lg:flex hidden'}
                                 href={'/login'}
                                 role={"primary"}

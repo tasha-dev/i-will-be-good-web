@@ -11,11 +11,7 @@ export default function FirstSectionComponent():ReactNode {
         <section>
             <main>
                 <ContainerComponent className={"lg:grid-cols-2 grid-cols-1 grid gap-[20px]"}>
-                    <MedicationListComponent list={[{
-                        name: 'Fluvoxamine',
-                        date: new Date(),
-                        isDone: true
-                    }]} />
+                    <MedicationListComponent list={[]} />
                 </ContainerComponent>
             </main>
         </section>
