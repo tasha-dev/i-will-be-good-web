@@ -50,7 +50,7 @@ export default function LoginPage():ReactNode {
                 <section>
                     <header className={'mb-[50px]'}>
                         <TitleComponent color={'text-themeBlue'} tier={1}>Login :</TitleComponent>
-                        <Image className={'h-[500px] w-full'} width={1024} height={500} src={mainImage.src} alt={'Image of some medications'}/>
+                        <Image className={'h-[500px] object-cover w-full'} width={1024} height={500} src={mainImage.src} alt={'Image of some medications'}/>
                     </header>
                     <main>
                         <form onSubmit={handleSubmit(onSubmitEventHandler)} action="#" className={'lg:grid-cols-2 grid-cols-1 grid gap-[20px]'}>
@@ -59,7 +59,7 @@ export default function LoginPage():ReactNode {
                             {
                                 (errors.root?.message)
                                     ? (
-                                        <div><p className="text-red-600 lg:text-[16px] text-[13px] font-bold">{errors.root?.message}</p></div>
+                                        <div className={'lg:col-span-2 col-span-1'}><p className="text-red-600 lg:text-[16px] text-[13px] font-bold">{errors.root?.message}</p></div>
                                     ) : false
                             }
                             <SubmitBtnComponent className={'lg:col-span-2 col-span-1'} isValidating={isValidating}/>
