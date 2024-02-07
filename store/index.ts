@@ -12,7 +12,7 @@ type LoginStateType = {
 
 // Defining store
 export const useLoginState = create<LoginStateType>()((set) => ({
-    isLoggedIn: true,
+    isLoggedIn: false,
     logIn: () => set({isLoggedIn: true}),
     logOut: () => set({isLoggedIn: false})
 }));

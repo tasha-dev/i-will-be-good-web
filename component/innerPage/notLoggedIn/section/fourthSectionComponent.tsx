@@ -29,7 +29,7 @@ export default function FourthSectionComponent():ReactNode {
                             </TitleComponent>
                         </header>
                         <main>
-                            <ParagraphComponent color={'text-white'} className={'lg:text-center text-left'}>
+                            <ParagraphComponent noMarginBottom color={'text-white'} className={'lg:text-center text-left'}>
                                 Consistency is the silent architect of success, shaping our lives with each small,
                                 intentional action. In the pursuit of our goals, whether in health, productivity, or
                                 personal development, it is the unwavering commitment to daily rituals that propels us

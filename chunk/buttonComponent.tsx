@@ -5,17 +5,20 @@ import Link from "next/link";
 
 // Defining type of props
 interface propsType {
-    children: string;
+    children: ReactNode;
     role: 'primary' | 'secondary';
-    href: string;
+    href?: string;
     classNameProp?: string;
     theme: 'white' | 'blue';
+    disabled?: boolean;
 };
 
 // Creating and exporting button component as default
-export default function ButtonComponent({children, role, href = '', classNameProp, theme}: propsType): ReactNode {
+export default function ButtonComponent({children, role, href = '', classNameProp, theme, disabled = false}: propsType): ReactNode {
     // Defining classNames
     const className:string = `px-[30px] py-[10px] text-white transition duration-500 
+    data-[disabled='false']:pointer-events-visible data-[disabled='true']:pointer-events-none
+    data-[disabled='false']:opacity-100 data-[disabled='true']:opacity-50
         ${(classNameProp) ? `${classNameProp}` : ''} 
         ${
             (role === 'primary') 
@@ -31,7 +34,7 @@ export default function ButtonComponent({children, role, href = '', classNamePro
     // Conditional rendering
     if (href !== '') {
         return (
-            <Link
+            <Link data-disabled={disabled} tabIndex={(disabled) ? -1 : 0}
                 href={href}
                 className={className}
             >
@@ -40,7 +43,7 @@ export default function ButtonComponent({children, role, href = '', classNamePro
         );
     } else {
         return (
-            <button className={className}>
+            <button tabIndex={(disabled) ? -1 : 0} data-disabled={disabled} className={className}>
                 {children}
             </button>
         );

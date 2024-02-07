@@ -3,8 +3,8 @@
 'use client';
 
 // Importing part
-import {ReactNode} from "react";
-import {useRouter} from "next/navigation";
+import {ReactNode, useEffect} from "react";
+import {usePathname, useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
 import {useLoginState} from "@/store";
@@ -23,12 +23,16 @@ export default function PageComponent({children, loginRequired}:propsType):React
     // Checking if user is logged in
     const loginState = useLoginState();
 
+    // Defining usePathname to use later
+    const pathName:string = usePathname();
+    const authPages:string[] = ['/login', '/signin'];
+
     // Creating small inner component for returned elements
     function ReturnedElements():ReactNode {
         // Returning JSX
         return (
             <>
-                <HeaderComponent isUserLoggedIn={loginState.isLoggedIn} />
+                <HeaderComponent isUserLoggedIn={(loginState.isLoggedIn || authPages.includes(pathName))} />
                 {children}
                 <FooterComponent />
             </>

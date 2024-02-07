@@ -11,7 +11,7 @@ import ButtonComponent from "@/chunk/buttonComponent";
 export default function ThirdSectionComponent():ReactNode {
     // Returning JSX
     return (
-        <section className={'mb-[50px]'}>
+        <section>
             <ContainerComponent>
                 <header className={'mb-[20px]'}>
                     <TitleWithCheckboxComponent
