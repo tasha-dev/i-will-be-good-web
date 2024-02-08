@@ -26,7 +26,7 @@ export default function ThirdSectionComponent():ReactNode {
                         <TitleComponent color={'text-themeBlue'} tier={2}>Mindful Mastery</TitleComponent>
                         <ParagraphComponent noMarginBottom color={'text-gray-500'} tier={2}>Engaging in regular meditation is a cognitive workout for the mind, a disciplined journey into the realms of self-awareness and tranquility. Beyond its ancient roots, modern science has substantiated the myriad benefits of this practice, from stress reduction to enhanced focus and emotional resilience. By carving out moments of stillness amidst life's cacophony, individuals cultivate a mental sanctuary, fostering clarity and introspection. Just as physical exercise is vital for a healthy body, regular meditation becomes the gymnasium for the mind, a sophisticated regimen that refines one's cognitive prowess and nurtures a resilient inner calm amid the demands of contemporary living.</ParagraphComponent>
                     </div>
-                    <ButtonComponent role={'primary'} href={'/meditation/report'} theme={'blue'}>Report</ButtonComponent>
+                    <ButtonComponent role={'primary'} href={'/dashboard/meditation/'} theme={'blue'}>Report</ButtonComponent>
                 </main>
             </ContainerComponent>
         </section>
