@@ -11,25 +11,40 @@ import Image from "next/image";
 import mainImage from '@/public/img/page/login/img-main.png';
 import FormComponent from "@/component/page/login/formComponent";
 import LinkComponent from "@/chunk/linkComponent";
+import {useLoginState} from "@/store";
 
 // Creating and exporting login page as default
 export default function LoginPage():ReactNode {
+    // Checking if user is logged in
+    const {isLoggedIn} = useLoginState();
+
     // Returning JSX
     return (
         <PageComponent loginRequired={false}>
             <ContainerComponent>
-                <section>
-                    <header className={'mb-[50px]'}>
-                        <TitleComponent color={'text-themeBlue'} tier={1}>Login :</TitleComponent>
-                        <Image className={'h-[500px] object-cover w-full'} width={1024} height={500} src={mainImage.src} alt={'Image of some medications'}/>
-                    </header>
-                    <main>
-                        <FormComponent/>
-                        <p className={'lg:text-[16px] text-[14px] font-normal text-black mt-[20px]'}>
-                            If you don't have any account : <LinkComponent href={'/sign-up'}>SignUp</LinkComponent>
-                        </p>
-                    </main>
-                </section>
+                {
+                    (isLoggedIn)
+                        ? (
+                            <section className={'min-h-screen flex items-center justify-center'}>
+                                <TitleComponent color={'text-themeBlue'} tier={1}>You are logged in already.</TitleComponent>
+                            </section>
+                        ): (
+                            <section>
+                                <header className={'mb-[50px]'}>
+                                    <TitleComponent color={'text-themeBlue'} tier={1}>Login :</TitleComponent>
+                                    <Image className={'h-[500px] object-cover w-full'} width={1024} height={500}
+                                           src={mainImage.src} alt={'Image of some medications'}/>
+                                </header>
+                                <main>
+                                    <FormComponent/>
+                                    <p className={'lg:text-[16px] text-[14px] font-normal text-black mt-[20px]'}>
+                                        If you don't have any account : <LinkComponent
+                                        href={'/sign-up'}>SignUp</LinkComponent>
+                                    </p>
+                                </main>
+                            </section>
+                        )
+                }
             </ContainerComponent>
         </PageComponent>
     );
