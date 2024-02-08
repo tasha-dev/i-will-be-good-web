@@ -8,22 +8,25 @@ import {usePathname, useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
 import {useLoginState} from "@/store";
+import DashboardNavComponent from "@/component/dashboardNav/dashboardNavComponent";
+import ContainerComponent from "@/chunk/containerComponent";
 
 // Defining type of props
 type propsType = {
     children: ReactNode;
     loginRequired: boolean;
+    isDashboard?: boolean;
 }
 
 // Creating and exporting page component as default
-export default function PageComponent({children, loginRequired}:propsType):ReactNode {
+export default function PageComponent({children, loginRequired, isDashboard = false}:propsType):ReactNode {
     // Defining useRouter hook to navigate later if user wasn't logged in
     const router = useRouter();
 
     // Checking if user is logged in
     const loginState = useLoginState();
 
-    // Defining usePathname to use later
+    // Defining usePathname and some strings for different styles
     const pathName:string = usePathname();
     const authPages:string[] = ['/login', '/sign-up'];
 
@@ -32,8 +35,16 @@ export default function PageComponent({children, loginRequired}:propsType):React
         // Returning JSX
         return (
             <>
-                <HeaderComponent isUserLoggedIn={(loginState.isLoggedIn || authPages.includes(pathName))} />
-                {children}
+                <HeaderComponent isUserLoggedIn={(loginState.isLoggedIn || authPages.includes(pathName))} isDashboard={isDashboard} />
+                {
+                    (isDashboard)
+                        ? (
+                            <ContainerComponent className={'grid grid-cols-3 h-[500px] mb-[20px] overflow-hidden border border-themeBlue'} noPaddingX noPaddingY>
+                                <DashboardNavComponent />
+                                <div className={'col-span-2'}>{children}</div>
+                            </ContainerComponent>
+                    ) : children
+                }
                 <FooterComponent />
             </>
         );

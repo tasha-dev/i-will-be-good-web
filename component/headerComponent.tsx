@@ -13,10 +13,11 @@ import Link from "next/link";
 // Defining type of props
 interface propsType {
     isUserLoggedIn: boolean;
+    isDashboard: boolean;
 }
 
 // Creating and exporting header component as default
-export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
+export default function HeaderComponent({isUserLoggedIn, isDashboard}:propsType):ReactNode {
     // Defining custom hook to use later
     const isScrolled:boolean = useScrolled({
         onMQ: true
@@ -32,7 +33,11 @@ export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
                     : 'lg:fixed top-0 left-0 z-10 w-full transition-all duration-500 lg:shadow-xl lg:data-[scrolled="true"]:bg-white lg:data-[scrolled="true"]:shadow-black/5 lg:data-[scrolled="false"]:bg-transparent lg:data-[scrolled="false"]:shadow-transparent'
             }
         >
-            <ContainerComponent noPaddingY className={'flex items-center lg:justify-between justify-center gap-[20px]'}>
+            <ContainerComponent noPaddingY className={
+                (!isDashboard)
+                    ? 'flex items-center justify-between gap-[20px]'
+                    : 'flex items-center justify-center'
+            }>
                 <Link href={'/'}>
                     <Image
                         alt={'Logo of I Will Be Good'}
@@ -41,18 +46,23 @@ export default function HeaderComponent({isUserLoggedIn}:propsType):ReactNode {
                         height={70}
                     />
                 </Link>
-                <ButtonComponent
-                    theme={'blue'}
-                    classNameProp={'lg:flex hidden'}
-                    href={(!isUserLoggedIn) ? '/login' : '/dashboard'}
-                    role={"primary"}
-                >
-                    {
-                        (!isUserLoggedIn)
-                            ? 'Log In'
-                            : 'Dashboard'
-                    }
-                </ButtonComponent>
+                {
+                    (!isDashboard)
+                        ? (
+                            <ButtonComponent
+                                theme={'blue'}
+                                classNameProp={'lg:flex hidden'}
+                                href={(!isUserLoggedIn) ? '/login' : '/dashboard'}
+                                role={"primary"}
+                            >
+                                {
+                                    (!isUserLoggedIn)
+                                        ? 'Log In'
+                                        : 'Dashboard'
+                                }
+                            </ButtonComponent>
+                        ) : false
+                }
             </ContainerComponent>
         </header>
     );

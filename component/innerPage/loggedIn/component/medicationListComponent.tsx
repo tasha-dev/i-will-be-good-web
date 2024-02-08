@@ -41,7 +41,7 @@ export default function MedicationListComponent({list}:propsType):ReactNode {
                     ) : (
                         <div className={'h-full px-[20px] pb-[20px] flex items-center justify-center flex-col'}>
                             <TitleComponent className={'text-center'} color={'text-white'} tier={2}>There is no medication to show.</TitleComponent>
-                            <ButtonComponent theme={'white'} role={'secondary'} href={'/add'}>Add medications</ButtonComponent>
+                            <ButtonComponent theme={'white'} role={'secondary'} href={'/select'}>Add medications</ButtonComponent>
                         </div>
                     )
             }
