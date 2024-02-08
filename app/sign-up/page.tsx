@@ -20,8 +20,8 @@ export default function Signup():ReactNode {
             <ContainerComponent>
                 <section>
                     <header className={'mb-[50px]'}>
-                        <TitleComponent color={'text-themeBlue'} tier={1}>Login :</TitleComponent>
-                        <Image className={'h-[500px] object-cover w-full'} width={1024} height={500} src={mainImage.src} alt={'Image of some medications'}/>
+                        <TitleComponent color={'text-themeBlue'} tier={1}>Sign Up :</TitleComponent>
+                        <Image className={'h-[500px] object-cover w-full'} width={1024} height={500} src={mainImage.src} alt={'Image of woman meditating'}/>
                     </header>
                     <main>
                         <FormComponent />
