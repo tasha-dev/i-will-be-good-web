@@ -3,7 +3,7 @@
 'use client';
 
 // Importing part
-import {ReactNode, useEffect} from "react";
+import {ReactNode} from "react";
 import {usePathname, useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
