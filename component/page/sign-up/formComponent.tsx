@@ -10,7 +10,9 @@ import {z} from "zod";
 // Defining type of form
 const formSchema = z.object({
     email: z.string().email(),
-    password: z.string().min(8).max(12)
+    password: z.string().min(8).max(12),
+    passwordRepeat: z.string().min(8).max(12),
+    name: z.string().min(2).max(100),
 });
 
 type formType = z.infer<typeof formSchema>;
@@ -23,6 +25,7 @@ export default function FormComponent():ReactNode {
     // Defining reactForm hook to use later in form
     const {
         register,
+        setError,
         handleSubmit,
         formState: {errors}
     } = useForm<formType>({
@@ -31,11 +34,15 @@ export default function FormComponent():ReactNode {
 
     // Defining a function to handle the form onSubmit event
     const onSubmitEventHandler:SubmitHandler<formType> = async (data) => {
-        setValidating(true);
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        if (data.password !== data.passwordRepeat) {
+            setError('root', {message: 'The password and password repeat fields are not matching'});
+        } else {
+            setValidating(true);
+            await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        setValidating(false);
-        console.log(data);
+            setValidating(false);
+            console.log(data);
+        }
     }
 
     // Returning JSX
@@ -43,6 +50,8 @@ export default function FormComponent():ReactNode {
         <form onSubmit={handleSubmit(onSubmitEventHandler)} action="#" className={'lg:grid-cols-2 grid-cols-1 grid gap-[20px]'}>
             <InputComponent register={register} registerName={'email'} label={"Email"} errorText={errors.email?.message}/>
             <InputComponent register={register} registerName={'password'} label={"Password"} errorText={errors.password?.message}/>
+            <InputComponent register={register} registerName={'passwordRepeat'} label={"Password Repeat"} errorText={errors.passwordRepeat?.message}/>
+            <InputComponent register={register} registerName={'name'} label={"Name"} errorText={errors.name?.message}/>
             {
                 (errors.root?.message)
                     ? (

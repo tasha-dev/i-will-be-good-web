@@ -8,12 +8,12 @@ import PageComponent from "@/component/pageComponent";
 import ContainerComponent from "@/chunk/containerComponent";
 import TitleComponent from "@/chunk/titleComponent";
 import Image from "next/image";
-import mainImage from '@/public/img/page/login/img-main.png';
-import FormComponent from "@/component/page/login/formComponent";
+import mainImage from '@/public/img/page/sign-up/img-main.png';
+import FormComponent from "@/component/page/sign-up/formComponent";
 import LinkComponent from "@/chunk/linkComponent";
 
-// Creating and exporting login page as default
-export default function LoginPage():ReactNode {
+// Creating and exporting sign up page as default
+export default function Signup():ReactNode {
     // Returning JSX
     return (
         <PageComponent loginRequired={false}>
@@ -24,9 +24,9 @@ export default function LoginPage():ReactNode {
                         <Image className={'h-[500px] object-cover w-full'} width={1024} height={500} src={mainImage.src} alt={'Image of some medications'}/>
                     </header>
                     <main>
-                        <FormComponent/>
+                        <FormComponent />
                         <p className={'lg:text-[16px] text-[14px] font-normal text-black mt-[20px]'}>
-                            If you don't have any account : <LinkComponent href={'/sign-up'}>SignUp</LinkComponent>
+                           If you already have an account : <LinkComponent href={'/login'}>Login</LinkComponent>
                         </p>
                     </main>
                 </section>
