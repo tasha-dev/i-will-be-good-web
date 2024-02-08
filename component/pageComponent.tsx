@@ -25,7 +25,7 @@ export default function PageComponent({children, loginRequired}:propsType):React
 
     // Defining usePathname to use later
     const pathName:string = usePathname();
-    const authPages:string[] = ['/login', '/signin'];
+    const authPages:string[] = ['/login', '/sign-up'];
 
     // Creating small inner component for returned elements
     function ReturnedElements():ReactNode {
