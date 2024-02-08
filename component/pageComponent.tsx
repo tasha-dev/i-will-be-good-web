@@ -8,7 +8,7 @@ import {usePathname, useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
 import {useLoginState} from "@/store";
-import DashboardNavComponent from "@/component/dashboardNav/dashboardNavComponent";
+import DashboardNavComponent from "@/component/dashboardNavComponent";
 import ContainerComponent from "@/chunk/containerComponent";
 
 // Defining type of props

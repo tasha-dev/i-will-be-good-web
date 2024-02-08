@@ -14,6 +14,7 @@ const config: Config = {
       './chunk/*.{ts,tsx,js,jsx}',
       './chunk/**/*.{ts,tsx,js,jsx}',
       './chunk/**/**/*.{ts,tsx,js,jsx}',
+      "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
   theme: {
     extend: {
