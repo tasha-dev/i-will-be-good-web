@@ -39,9 +39,11 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
                 {
                     (isDashboard)
                         ? (
-                            <ContainerComponent className={'grid grid-cols-3 h-[500px] mb-[20px] overflow-hidden border border-themeBlue'} noPaddingX noPaddingY>
-                                <DashboardNavComponent />
-                                <div className={'col-span-2'}>{children}</div>
+                            <ContainerComponent>
+                                <div className={'grid lg:grid-cols-3 grid-cols-1 lg:h-[500px] overflow-hidden border border-themeBlue'}>
+                                    <DashboardNavComponent />
+                                    <div className={'lg:col-span-2 p-[20px] h-full overflow-auto'}>{children}</div>
+                                </div>
                             </ContainerComponent>
                     ) : children
                 }

@@ -8,7 +8,7 @@ import TitleComponent from "@/chunk/titleComponent";
 export default function DashboardNavComponent():ReactNode {
     // Returning JSX
     return (
-        <nav className={'border-r border-r-themeBlue flex flex-col items-start justify-start'}>
+        <nav className={'lg:border-r border-r-themeBlue flex flex-col items-start justify-start'}>
             <div className={'p-[20px] mb-[10px] w-full shrink-0'}>
                 <TitleComponent noMarginBottom color={'text-themeBlue'} tier={2}>Dashboard:</TitleComponent>
             </div>
