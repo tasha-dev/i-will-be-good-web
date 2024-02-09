@@ -7,6 +7,7 @@ import DrugInfoComponent from "@/component/drugInfoComponent";
 import InputComponent from "@/chunk/inputComponent";
 import SubmitBtnComponent from "@/chunk/submitBtnComponent";
 import MedicationFormComponent from "@/component/page/dashboard/select/medicationFormComponent";
+import MeditationFormComponent from "@/component/page/dashboard/select/meditationFormComponent";
 
 // Creating and exporting select page as default
 export default function SelectPage():ReactNode {
@@ -26,7 +27,7 @@ export default function SelectPage():ReactNode {
             <div className={'mb-[30px]'}>
                 <TitleComponent color={'text-themeBlue'} tier={2}>Medications</TitleComponent>
                 <MedicationFormComponent />
-                <ul className={'pl-[70px]'}>
+                <ul className={'lg:pl-[70px] pl-[30px]'}>
                     {
                         medications.map((drug) => (
                             <DrugInfoComponent description={drug.description} name={drug.name}/>
@@ -36,10 +37,7 @@ export default function SelectPage():ReactNode {
             </div>
             <div>
                 <TitleComponent color={'text-themeBlue'} tier={2}>Meditations</TitleComponent>
-                {/*<form className={'grid grid-cols-5 gap-[10px] mb-[20px]'}>*/}
-                {/*    <InputComponent label={'Time'} errorText={''} registerName={'name'} className={'col-span-4'}/>*/}
-                {/*    <SubmitBtnComponent isValidating={false}/>*/}
-                {/*</form>*/}
+                <MeditationFormComponent />
             </div>
         </PageComponent>
     );

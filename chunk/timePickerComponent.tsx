@@ -5,7 +5,7 @@ import {UseFormRegister} from "react-hook-form";
 
 // Defining type of props
 interface propsType {
-    onChange: EventHandler<any>;
+    onChange?: EventHandler<any>;
     time?: string;
     errorText?: string;
     className?: string;
@@ -22,7 +22,7 @@ export default function TimePickerComponent({onChange, time = '00:00', className
                 {...register(registerName)}
                 type="time"
                 value={time}
-                onChange={onChange}
+                onChange={(onChange) ? onChange : () => false}
                 className={'border bg-white border-themeBlue text-themeBlue text-[16px] font-normal rounded-[10px] w-full p-[10px] transition-all duration-500 outline-none'}
             />
             {

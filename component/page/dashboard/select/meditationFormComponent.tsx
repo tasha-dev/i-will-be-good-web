@@ -13,14 +13,13 @@ import TimePickerComponent from "@/chunk/timePickerComponent";
 
 // Defining type of form
 const formSchema = z.object({
-    name: z.string().min(2).max(50),
     time: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/)
 });
 
 type formType = z.infer<typeof formSchema>;
 
-// Creating and exporting medication form component as default
-export default function MedicationFormComponent():ReactNode {
+// Creating and exporting meditation form component as default
+export default function MeditationFormComponent():ReactNode {
     // Defining state of component
     const [isValidating, setValidating]:[boolean, Dispatch<boolean>] = useState(false);
 
@@ -44,10 +43,9 @@ export default function MedicationFormComponent():ReactNode {
 
     // Returning JSX
     return (
-        <form onSubmit={handleSubmit(onSubmitHandler)} className={'grid lg:grid-cols-5 grid-cols-1 gap-[10px] mb-[20px]'}>
-            <InputComponent register={register} label={'Name'} errorText={errors.name?.message} registerName={'name'}/>
-            <TimePickerComponent registerName={'time'} register={register} errorText={errors.time?.message} className={'lg:col-span-3 col-span-1'} />
-            <div>
+        <form onSubmit={handleSubmit(onSubmitHandler)} className={'grid lg:grid-cols-3 grid-cols-1 gap-[10px] mb-[20px]'}>
+            <TimePickerComponent registerName={'time'} register={register} errorText={errors.time?.message} className={'lg:col-span-2 col-span-1'} />
+            <div className={'col-span-1'}>
                 <SubmitBtnComponent className={'w-full'} isValidating={isValidating} />
             </div>
         </form>
