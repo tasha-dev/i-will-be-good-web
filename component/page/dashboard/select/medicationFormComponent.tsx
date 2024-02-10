@@ -44,8 +44,14 @@ export default function MedicationFormComponent():ReactNode {
 
     // Returning JSX
     return (
-        <form onSubmit={handleSubmit(onSubmitHandler)} className={'grid lg:grid-cols-5 grid-cols-1 gap-[10px] mb-[20px]'}>
-            <InputComponent register={register} label={'Name'} errorText={errors.name?.message} registerName={'name'}/>
+        <form onSubmit={handleSubmit(onSubmitHandler)} className={'grid lg:grid-cols-5 grid-cols-1 gap-[10px] mb-[20px] relative'}>
+            <InputComponent
+                register={register}
+                label={'Name'}
+                errorText={errors.name?.message}
+                registerName={'name'}
+                isDrugSearch
+            />
             <TimePickerComponent registerName={'time'} register={register} errorText={errors.time?.message} className={'lg:col-span-3 col-span-1'} />
             <div>
                 <SubmitBtnComponent className={'w-full'} isValidating={isValidating} />

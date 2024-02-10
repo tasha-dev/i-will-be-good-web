@@ -23,7 +23,7 @@ export default function TimePickerComponent({onChange, time = '00:00', className
                 type="time"
                 value={time}
                 onChange={(onChange) ? onChange : () => false}
-                className={'border bg-white border-themeBlue text-themeBlue text-[16px] font-normal rounded-[10px] w-full p-[10px] transition-all duration-500 outline-none'}
+                className={'border bg-white border-themeBlue h-[45px] text-themeBlue text-[16px] font-normal rounded-[10px] w-full p-[10px] transition-all duration-500 outline-none'}
             />
             {
                 (errorText)

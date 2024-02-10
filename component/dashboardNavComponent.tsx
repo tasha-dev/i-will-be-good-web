@@ -15,7 +15,7 @@ export default function DashboardNavComponent():ReactNode {
             <ul className={'lg:h-[370px] h-[374px] w-full overflow-auto'}>
                 <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/meditation'} role={'primary'} theme={'blue'}>Meditation Report</ButtonComponent></li>
                 <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/medication'} role={'primary'} theme={'blue'}>Medication Report</ButtonComponent></li>
-                <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/medication'} role={'primary'} theme={'blue'}>Select medication and medications</ButtonComponent></li>
+                <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/select'} role={'primary'} theme={'blue'}>Select medication and medications</ButtonComponent></li>
             </ul>
             <button className={'px-[30px] py-[10px] mt-[10px] text-white shrink-0 transition duration-500 bg-red-600 font-bold w-full hover:bg-red-700'}>
                 Log out

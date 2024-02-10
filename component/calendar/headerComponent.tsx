@@ -33,7 +33,7 @@ export default function HeaderComponent({currentMonth, prevMonthHandler, nextMon
                     <IconComponent name={'chevron-right'} size={18} fill={'fill-current'}/>
                 </button>
             </div>
-            <div className={'grid grid-cols-7 lg:gap-[30px] gap-[5px] lg:p-[20px] p-[10px]'}>
+            <div className={'grid grid-cols-7 lg:gap-[30px] gap-[5px]'}>
                 <div className={'aspect-square flex items-center justify-center text-[18px] font-normal text-themeBlue rounded-[10px] bg-white'}>S</div>
                 <div className={'aspect-square flex items-center justify-center text-[18px] font-normal text-themeBlue rounded-[10px] bg-white'}>M</div>
                 <div className={'aspect-square flex items-center justify-center text-[18px] font-normal text-themeBlue rounded-[10px] bg-white'}>T</div>

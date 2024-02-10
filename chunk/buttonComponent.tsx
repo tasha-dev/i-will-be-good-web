@@ -11,10 +11,11 @@ interface propsType {
     classNameProp?: string;
     theme: 'white' | 'blue';
     disabled?: boolean;
+    onClick?: () => {};
 };
 
 // Creating and exporting button component as default
-export default function ButtonComponent({children, role, href = '', classNameProp, theme, disabled = false}: propsType): ReactNode {
+export default function ButtonComponent({children, role, href = '', classNameProp, theme, disabled = false, onClick}: propsType): ReactNode {
     // Defining classNames
     const className:string = `px-[30px] py-[10px] text-white transition duration-500 
     data-[disabled='false']:pointer-events-visible data-[disabled='true']:pointer-events-none
@@ -24,9 +25,9 @@ export default function ButtonComponent({children, role, href = '', classNamePro
             (role === 'primary') 
                 ? (theme === 'white') 
                     ? 'bg-white text-themeBlue hover:bg-gray-300' 
-                    : 'bg-themeBlue hover:bg-darkThemeBlue text-white' 
+                    : 'bg-themeBlue hover:bg-darkThemeBlue text-themeBlue' 
                 : (theme === 'white')                     
-                    ? 'border border-white text-white hover:bg-white hover:text-themeBlue'
+                    ? 'border border-white text-black hover:bg-white hover:text-themeBlue'
                     : 'border border-themeBlue text-themeBlue hover:bg-themeBlue hover:text-white'
         }
    `;
@@ -43,7 +44,7 @@ export default function ButtonComponent({children, role, href = '', classNamePro
         );
     } else {
         return (
-            <button tabIndex={(disabled) ? -1 : 0} data-disabled={disabled} className={className}>
+            <button onClick={onClick} tabIndex={(disabled) ? -1 : 0} data-disabled={disabled} className={className}>
                 {children}
             </button>
         );
