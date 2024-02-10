@@ -24,8 +24,8 @@ export default function MedicationReportPage():ReactNode {
             <TitleComponent color={'text-themeBlue'} tier={2}>Medication Report</TitleComponent>
             <ul className={'flex flex-col gap-[20px]'}>
                 {
-                    data.map((item) => (
-                        <li className={'lg:pl-[70px] pl-[30px] '}>
+                    data.map((item, index) => (
+                        <li className={'lg:pl-[70px] pl-[30px]'} key={index}>
                             <ul className={'mb-[20px]'}>
                                 <DrugInfoComponent name={item.medicationName} description={item.description} />
                             </ul>

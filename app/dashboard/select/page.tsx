@@ -4,8 +4,6 @@ import {ReactNode} from "react";
 import PageComponent from "@/component/pageComponent";
 import TitleComponent from "@/chunk/titleComponent";
 import DrugInfoComponent from "@/component/drugInfoComponent";
-import InputComponent from "@/chunk/inputComponent";
-import SubmitBtnComponent from "@/chunk/submitBtnComponent";
 import MedicationFormComponent from "@/component/page/dashboard/select/medicationFormComponent";
 import MeditationFormComponent from "@/component/page/dashboard/select/meditationFormComponent";
 

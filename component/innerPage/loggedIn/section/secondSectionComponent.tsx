@@ -29,8 +29,9 @@ export default function SecondSectionComponent():ReactNode {
                 <main>
                     <ul className={'pl-[50px] flex flex-col gap-[20px]'}>
                         {
-                            data.map((drug:dataType) => (
+                            data.map((drug:dataType, index) => (
                                 <DrugInfoComponent
+                                    key={index}
                                     description={drug.description}
                                     name={drug.name}
                                 />

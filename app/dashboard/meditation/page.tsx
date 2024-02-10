@@ -3,7 +3,6 @@ import {ReactNode} from "react";
 import PageComponent from "@/component/pageComponent";
 import TitleComponent from "@/chunk/titleComponent";
 import CalendarComponent from "@/component/calendar/calendarComponent";
-import DrugInfoComponent from "@/component/drugInfoComponent";
 
 // Creating and exporting meditation report page as default
 export default function MeditationReportPage():ReactNode {

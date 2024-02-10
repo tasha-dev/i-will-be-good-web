@@ -40,10 +40,11 @@ export default function CalendarComponent({activeDays}:propsType):ReactNode {
                 nextMonthHandler={() => setActiveMonth(addMonths(activeMonth, 1))}
             />
             <div className={'grid grid-cols-7 lg:gap-[30px] gap-[5px] lg:p-[20px] p-[10px]'}>
-                {[...Array(daysTillFirstDayOfMonth)].map(() => <div />)}
+                {[...Array(daysTillFirstDayOfMonth)].map((item, index) => <div key={`non-showing-days-${index}`} />)}
                 {
                     [...Array(getDaysInMonth(activeMonth))].map((item, index) => (
                         <div
+                          key={index}
                             data-today={(new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`).toISOString() === new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`).toISOString())}
                             data-done={activeDays.includes(new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`).toISOString())}
                             data-is-gone={(!activeDays.includes(new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`).toISOString()) && compareAsc(new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`), subDays(new Date(), 1)) === -1)}

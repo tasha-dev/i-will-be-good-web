@@ -28,8 +28,9 @@ export default function MedicationListComponent({list}:propsType):ReactNode {
                     ? (
                         <ul className={'h-full px-[20px] pb-[20px] overflow-y-auto overflow-x-hidden flex flex-col gap-[20px]'}>
                             {
-                                list.map((medication: listType): ReactNode => (
+                                list.map((medication: listType, index): ReactNode => (
                                     <TitleWithCheckboxComponent
+                                        key={index}
                                         isChecked={medication.isDone}
                                         title={medication.name}
                                         date={medication.date}
