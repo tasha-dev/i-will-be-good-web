@@ -2,8 +2,7 @@
 // Importing part
 import { create } from 'zustand'
 
-// Login state
-// Type
+// Types
 type LoginStateType = {
     isLoggedIn: boolean;
     logIn: () => void;
@@ -12,7 +11,7 @@ type LoginStateType = {
 
 // Defining store
 export const useLoginState = create<LoginStateType>()((set) => ({
-    isLoggedIn: true,
+    isLoggedIn: false,
     logIn: () => set({isLoggedIn: true}),
     logOut: () => set({isLoggedIn: false})
 }));

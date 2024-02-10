@@ -3,7 +3,7 @@
 'use client';
 
 // Importing part
-import {Dispatch, ReactNode, useState} from "react";
+import {Dispatch, MutableRefObject, ReactNode, useRef, useState} from "react";
 import {UseFormRegister} from "react-hook-form";
 
 // Defining type of props
@@ -19,6 +19,10 @@ interface propsType {
 export default function InputComponent({errorText, register, label, registerName, className}:propsType):ReactNode {
     // Defining state of component
     const [isFocused, setFocused]:[boolean, Dispatch<boolean>] = useState(false);
+    const [value, setValue]:[string, Dispatch<string>] = useState('');
+
+    // Defining refrence to input element
+    const inputElementRef:MutableRefObject<any> = useRef();
 
     // Returning JSX
     return (
@@ -26,12 +30,16 @@ export default function InputComponent({errorText, register, label, registerName
             <div className="relative">
                 <input
                     {...register(registerName, {
-                        onBlur: (event) => (event === '') ? setFocused(false) : setFocused(true),
+                        onBlur: () => (value.startsWith(' ') || value === '') ? setFocused(false) : setFocused(true),
+                        onChange: (event) => setValue(event.target.value),
+                        value: value
                     })}
+                    ref={inputElementRef}
                     className="border bg-white border-themeBlue text-themeBlue text-[16px] font-normal rounded-[10px] w-full p-[10px] transition-all duration-500 outline-none"
                     onFocus={() => setFocused(true)}
                 />
                 <label
+                    onClick={() => inputElementRef.current.focus()}
                     data-focused={isFocused}
                     className="absolute bg-white text-themeBlue -translate-y-[50%] transition-all duration-500 data-[focused='false']:top-[50%] data-[focused='false']:left-[10px] data-[focused='false']:text-[15px] data-[focused='false']:px-0 data-[focused='true']:top-0 data-[focused='true']:left-[30px] data-[focused='true']:text-[12px] data-[focused='true']:px-[20px]"
                 >
