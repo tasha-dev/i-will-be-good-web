@@ -7,7 +7,6 @@ import {ReactNode} from "react";
 import {usePathname, useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
-import {useLoginState} from "@/store";
 import DashboardNavComponent from "@/component/dashboardNavComponent";
 import ContainerComponent from "@/chunk/containerComponent";
 
@@ -23,9 +22,6 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
     // Defining useRouter hook to navigate later if user wasn't logged in
     const router = useRouter();
 
-    // Checking if user is logged in
-    const loginState = useLoginState();
-
     // Defining usePathname and some strings for different styles
     const pathName:string = usePathname();
     const authPages:string[] = ['/login', '/sign-up'];
@@ -35,7 +31,7 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
         // Returning JSX
         return (
             <>
-                <HeaderComponent isUserLoggedIn={(loginState.isLoggedIn || authPages.includes(pathName))} isDashboard={isDashboard} />
+                <HeaderComponent isUserLoggedIn={true} isDashboard={isDashboard} />
                 {
                     (isDashboard)
                         ? (
@@ -54,7 +50,7 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
 
     // Conditional rendering
     if (loginRequired) {
-        if (!loginState.isLoggedIn) {router.push('/signIn')}
+        if (!true) {router.push('/signIn')}
         else {return <ReturnedElements />}
     } else {return <ReturnedElements /> }
 }

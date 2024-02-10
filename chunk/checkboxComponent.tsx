@@ -20,7 +20,7 @@ export default function CheckboxComponent({isChecked, theme}:propsType):ReactNod
 
     // Returning JSX
     return (
-        <div
+        <button
             data-checked={isCheckedState}
             className={`w-[50px] h-[50px] cursor-pointer rounded-[10px] flex items-center justify-center transition-all duration-500 shrink-0 aspect-square border data-[checked="false"]:bg-transparent data-[checked="false"]:[&>svg]:opacity-0 data-[checked="true"]:[&>svg]:opacity-100 ${(theme === 'themeBlue') ? 'border-themeBlue data-[checked="true"]:bg-themeBlue' : 'border-white data-[checked="true"]:bg-white'}`}
             onClick={() => {
@@ -34,6 +34,6 @@ export default function CheckboxComponent({isChecked, theme}:propsType):ReactNod
                 size={20}
                 fill={(theme === 'themeBlue') ? 'fill-white' : 'fill-themeBlue'}
             />
-        </div>
+        </button>
     );
 }
