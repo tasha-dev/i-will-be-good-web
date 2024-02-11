@@ -35,7 +35,7 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
                 {
                     (isDashboard)
                         ? (
-                            <ContainerComponent>
+                            <ContainerComponent className={'min-h-screen flex items-center justify-center'}>
                                 <div className={'grid lg:grid-cols-3 grid-cols-1 lg:h-[500px] overflow-hidden border border-themeBlue'}>
                                     <DashboardNavComponent />
                                     <div className={'lg:col-span-2 p-[20px] h-full overflow-auto'}>{children}</div>
