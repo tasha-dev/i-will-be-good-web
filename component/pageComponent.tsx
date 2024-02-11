@@ -4,7 +4,7 @@
 
 // Importing part
 import {ReactNode} from "react";
-import {usePathname, useRouter} from "next/navigation";
+import {useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
 import DashboardNavComponent from "@/component/dashboardNavComponent";
@@ -22,11 +22,6 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
     // Defining useRouter hook to navigate later if user wasn't logged in
     const router = useRouter();
 
-    // Defining usePathname and some strings for different styles
-    const pathName:string = usePathname();
-    const authPages:string[] = ['/login', '/sign-up'];
-
-    // Creating small inner component for returned elements
     function ReturnedElements():ReactNode {
         // Returning JSX
         return (

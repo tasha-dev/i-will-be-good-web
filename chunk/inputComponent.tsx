@@ -13,14 +13,14 @@ interface propsType {
     errorText: string | undefined;
     registerName: string;
     className?: string;
-    isDrugSearch?: boolean;
 }
 
 // Creating and exporting input component as default
-export default function InputComponent({errorText, register, label, registerName, className, isDrugSearch = false, setMedications}:propsType):ReactNode {
+export default function InputComponent({errorText, register, label, registerName, className}:propsType):ReactNode {
     // Defining state of component
     const [isFocused, setFocused]:[boolean, Dispatch<boolean>] = useState(false);
     const [value, setValue]:[string, Dispatch<string>] = useState('');
+
     // Returning JSX
     return (
         <div data-focused={isFocused} className={(className) ? className : ''}>

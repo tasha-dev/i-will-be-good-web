@@ -15,8 +15,8 @@ interface propsType {
 export default function HeaderComponent({currentMonth, prevMonthHandler, nextMonthHandler}:propsType):ReactNode {
     // Returning JSX
     return (
-        <div className={'lg:px-[20px] px-[0px] lg:pt-[20px] pt-[10px]'}>
-            <div className={'flex justify-between items-center lg:mb-[20px] mb-0'}>
+        <div className={'lg:px-[20px] px-[10px] lg:pt-[20px] pt-[10px]'}>
+            <div className={'flex justify-between items-center lg:mb-[20px] mb-[10px]'}>
                 <button
                     onClick={prevMonthHandler}
                     className={'shrink-0 w-[30px] h-[30px] aspect-square flex items-center justify-center rounded-[10px] transition-all duration-500 text-white hover:text-themeBlue bg-themeBlue hover:bg-white'}
@@ -24,7 +24,7 @@ export default function HeaderComponent({currentMonth, prevMonthHandler, nextMon
                     <IconComponent name={'chevron-left'} size={18} fill={'fill-current'}/>
                 </button>
                 <span className={'lg:text-[16px] text-[12px] text-white font-normal block truncate'}>
-                    {format(currentMonth, 'MMMM')}
+                    {format(currentMonth, 'yyyy-MMMM')}
                 </span>
                 <button
                     onClick={nextMonthHandler}

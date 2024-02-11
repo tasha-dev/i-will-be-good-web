@@ -50,7 +50,6 @@ export default function MedicationFormComponent():ReactNode {
                 label={'Name'}
                 errorText={errors.name?.message}
                 registerName={'name'}
-                isDrugSearch
             />
             <TimePickerComponent registerName={'time'} register={register} errorText={errors.time?.message} className={'lg:col-span-3 col-span-1'} />
             <div>
