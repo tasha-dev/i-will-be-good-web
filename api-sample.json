@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "uid": "dGyLAp8brDcOJYWJnSpD7biVJH73",
+      "medication": [
+        {
+          "name": "risperidone",
+          "time": "21:00",
+          "doneDates": ["2024-02-10T20:30:00.000Z", "2024-02-09T20:30:00.000Z"]
+        },{
+          "name": "fluvoxamine",
+          "time": "14:30",
+          "doneDates": ["2024-02-10T20:30:00.000Z", "2024-02-09T20:30:00.000Z"]
+        }
+      ],
+      "meditation": {
+        "time": "6:15",
+        "doneDates": ["2024-02-10T20:30:00.000Z", "2024-02-09T20:30:00.000Z"]
+      }
+    }
+  ]
+}
