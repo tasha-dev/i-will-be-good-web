@@ -52,7 +52,7 @@ export default function HeaderComponent({isUserLoggedIn, isDashboard}:propsType)
                             <ButtonComponent
                                 theme={'blue'}
                                 classNameProp={'lg:flex hidden'}
-                                href={(!isUserLoggedIn) ? '/login' : '/dashboard'}
+                                href={(!isUserLoggedIn) ? '/login' : '/dashboard/select'}
                                 role={"primary"}
                             >
                                 {
