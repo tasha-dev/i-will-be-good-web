@@ -11,19 +11,15 @@ import Image from "next/image";
 import mainImage from '@/public/img/page/sign-up/img-main.png';
 import FormComponent from "@/component/page/sign-up/formComponent";
 import LinkComponent from "@/chunk/linkComponent";
-import {useLoginState} from "@/store";
 
 // Creating and exporting sign up page as default
 export default function Signup(): ReactNode {
-    // Checking if user is logged in
-    const {isLoggedIn} = useLoginState();
-
     // Returning JSX
     return (
         <PageComponent loginRequired={false}>
             <ContainerComponent>
                 {
-                    (isLoggedIn)
+                    (true)
                         ? (
                             <section className={'min-h-screen flex items-center justify-center'}>
                                 <TitleComponent color={'text-themeBlue'} tier={1}>You are logged in already.</TitleComponent>
