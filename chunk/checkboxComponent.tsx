@@ -4,7 +4,6 @@
 
 // Importing part
 import {Dispatch, ReactNode, useState} from "react";
-import theme from "tailwindcss/defaultTheme";
 import IconComponent from "@/chunk/iconComponent";
 
 // Defining type of props
