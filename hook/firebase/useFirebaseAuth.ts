@@ -23,6 +23,8 @@ export default function useFirebaseAuth():{
     onAuthStateChanged(auth, (user:User | null) => {
       setData(user);
     })
+
+    setLoading(false);
   }, [])
 
   // Returning states
