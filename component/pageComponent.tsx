@@ -9,6 +9,8 @@ import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
 import DashboardNavComponent from "@/component/dashboardNavComponent";
 import ContainerComponent from "@/chunk/containerComponent";
+import useFirebaseAuth from "@/hook/firebase/useFirebaseAuth";
+import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 
 // Defining type of props
 type propsType = {
@@ -22,11 +24,14 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
     // Defining useRouter hook to navigate later if user wasn't logged in
     const router = useRouter();
 
+    // Defining firebase auth
+    const auth = useFirebaseAuth();
+
     function ReturnedElements():ReactNode {
         // Returning JSX
         return (
             <>
-                <HeaderComponent isUserLoggedIn={true} isDashboard={isDashboard} />
+                <HeaderComponent isUserLoggedIn={(auth.user !== null)} isDashboard={isDashboard} />
                 {
                     (isDashboard)
                         ? (
@@ -44,8 +49,16 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
     }
 
     // Conditional rendering
-    if (loginRequired) {
-        if (!true) {router.push('/signIn')}
+    if (auth.isLoading) {
+      return (
+        <div className="flex items-center justify-center h-full w-full fixed top-0 left-0 bg-white">
+          <LoadingAnimateComponent />
+        </div>
+      );
+    } else {
+      if (loginRequired) {
+        if (auth.user === null) {router.push('/signIn')}
         else {return <ReturnedElements />}
-    } else {return <ReturnedElements /> }
+      } else {return <ReturnedElements /> }
+    }
 }

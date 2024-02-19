@@ -18,9 +18,11 @@ export default function HomePage():ReactNode {
     return (
         <PageComponent loginRequired={false}>
             {
-                (auth.user !== null)
-                    ? <HomeLoggedIn />
-                    : <HomeNotLoggedIn />
+              (auth.isLoading)
+                ? false
+                : (auth.user !== null)
+                  ? <HomeLoggedIn />
+                  : <HomeNotLoggedIn />
             }
         </PageComponent>
     );
