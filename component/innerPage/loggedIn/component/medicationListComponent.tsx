@@ -3,16 +3,11 @@ import {ReactNode} from "react";
 import TitleComponent from "@/chunk/titleComponent";
 import TitleWithCheckboxComponent from "@/chunk/titleWithCheckboxComponent";
 import ButtonComponent from "@/chunk/buttonComponent";
+import { dataType }  from '@/hook/firebase/useFirebaseMedication';
 
 // Defining type of props
-interface listType {
-    date: Date,
-    name: string,
-    isDone: boolean
-}
-
 interface propsType {
-    list: listType[];
+    list: dataType[];
 }
 
 // Creating and exporting medications list component as default
@@ -28,12 +23,12 @@ export default function MedicationListComponent({list}:propsType):ReactNode {
                     ? (
                         <ul className={'h-full px-[20px] pb-[20px] overflow-y-auto overflow-x-hidden flex flex-col gap-[20px]'}>
                             {
-                                list.map((medication: listType, index): ReactNode => (
+                                list.map((medication: dataType, index): ReactNode => (
                                     <TitleWithCheckboxComponent
                                         key={index}
-                                        isChecked={medication.isDone}
+                                        isChecked={medication.dates.includes(`${new Date().getFullYear()}/${new Date().getDate()}/${new Date().getMonth() + 1}`)}
                                         title={medication.name}
-                                        date={medication.date}
+                                        time={medication.time}
                                         theme={'white'}
                                     />
                                 ))

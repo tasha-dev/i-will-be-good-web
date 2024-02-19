@@ -6,19 +6,27 @@ import MedicationListComponent from "@/component/innerPage/loggedIn/component/me
 import TitleComponent from "@/chunk/titleComponent";
 import ParagraphComponent from "@/chunk/paragraphComponent";
 import ButtonComponent from "@/chunk/buttonComponent";
+import useFirebaseMedication from "@/hook/firebase/useFirebaseMedication";
+import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 
 // Creating and exporting first section of logged in page as default
 export default function FirstSectionComponent():ReactNode {
+    // Defining firabase medication
+    const medication = useFirebaseMedication();
+
     // Returning JSX
     return (
         <section>
             <main>
                 <ContainerComponent className={"lg:grid-cols-2 grid-cols-1 grid gap-[20px]"}>
-                    <MedicationListComponent list={[{
-                        name: 'Fluvoxamine',
-                        date: new Date(),
-                        isDone: false
-                    }]} />
+                    {
+                      (medication.loading)
+                        ? (
+                          <div className="rounded-[20px] lg:h-auto h-[300px] flex items-center justify-center bg-themeBlue" >
+                            <LoadingAnimateComponent />
+                          </div>
+                        ) : <MedicationListComponent list={medication.data} />
+                    } 
                     <div className={'lg:h-[300px] lg:justify-between gap-[20px] flex items-start flex-col'}>
                         <div>
                             <TitleComponent color={'text-themeBlue'} tier={2}>Prescription Prowesst</TitleComponent>

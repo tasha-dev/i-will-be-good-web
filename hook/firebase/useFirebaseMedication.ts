@@ -5,23 +5,23 @@ import { DataSnapshot, getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 // Defining types
-type dataType = {
+export type dataType = {
     time: string,
     dates: string[],
     name: string
-}[];
+};
 
 // Creating and exporting useFirebaseMedication hook as default
 export default function useFirebaseMedication(): {
   loading: boolean,
-  data: dataType | undefined
+  data: dataType[] | undefined
 } {
   // Defining auth
   const auth = useFirebaseAuth();
 
   // Defining states of component
   const [isLoading, setLoading] = useState<boolean>(auth.isLoading);
-  const [data, setData] = useState<dataType | undefined>();
+  const [data, setData] = useState<dataType[] | undefined>();
 
   // Using useEffect hook to set data
   useEffect(() => {
