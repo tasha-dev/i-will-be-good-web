@@ -1,8 +1,13 @@
 // Codes by mahdi tasha
+// Forcing nextJS to render this component as client side component
+'use client';
+
 // Importing part
 import useFirebaseAuth from "@/hook/useFirebaseAuth";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
+import HeaderComponent from "./headerComponent";
+import ContainerComponent from "@/chunk/containerComponent";
 
 // Defining type of props
 interface propsType {
@@ -23,8 +28,10 @@ export default function PageComponent({children, loginRequired = false}:propsTyp
     // Returning JSX
     return (
       <div>
-         <h1>Header</h1>
-         <div>{children}</div>
+         <HeaderComponent isUserLoggedIn={(auth.user !== null)} />
+         <ContainerComponent className="lg:mt-[100px] mt-0">
+           {children}
+         </ContainerComponent>
          <h1>Footer</h1>
       </div> 
     );
@@ -38,7 +45,7 @@ export default function PageComponent({children, loginRequired = false}:propsTyp
   } else {
     if (loginRequired) {
       if (auth.user !== null) { return <ReturnedComponent /> } 
-      else { router.push('/sign-in') }
+      else { router.push('/login') }
     } else { return <ReturnedComponent /> }
   }
 }

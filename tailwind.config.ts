@@ -12,7 +12,16 @@ const config: Config = {
     './component/*.{ts,tsx,js,jsx}',
     './component/**/*.{ts,tsx,js,jsx}'
   ],
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        themeBlue: '#6699CC',
+        themeBlueDark: '#5580AB',
+        themeGreen: '#66CC99',
+        themeGreenDark: '#57AD82'
+      },
+    },
+  },
   plugins: [],
 };
 

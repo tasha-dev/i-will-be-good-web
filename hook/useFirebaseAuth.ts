@@ -1,6 +1,6 @@
 // Codes by mahdi tasha
 // Importing part
-import useFirebaseApp from "@/hook/firebase/useFirebaseApp";
+import useFirebaseApp from "@/hook/useFirebaseApp";
 import { useEffect, useState } from "react";
 import { User, getAuth, onAuthStateChanged } from "firebase/auth";
 

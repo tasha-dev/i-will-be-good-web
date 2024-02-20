@@ -1,6 +1,6 @@
 // Codes byy mahdi tasha
 // Importing part
-import useFirebaseAuth from "@/hook/firebase/useFirebaseAuth";
+import useFirebaseAuth from "@/hook/useFirebaseAuth";
 import { DataSnapshot, getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
