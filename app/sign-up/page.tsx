@@ -11,15 +11,19 @@ import Image from "next/image";
 import mainImage from '@/public/img/page/sign-up/img-main.png';
 import FormComponent from "@/component/page/sign-up/formComponent";
 import LinkComponent from "@/chunk/linkComponent";
+import useFirebaseAuth from "@/hook/firebase/useFirebaseAuth";
 
 // Creating and exporting sign up page as default
 export default function Signup(): ReactNode {
+    // Defining firebase
+    const auth = useFirebaseAuth();
+
     // Returning JSX
     return (
         <PageComponent loginRequired={false}>
             <ContainerComponent>
                 {
-                    (true)
+                    (auth.user !== null)
                         ? (
                             <section className={'min-h-screen flex items-center justify-center'}>
                                 <TitleComponent color={'text-themeBlue'} tier={1}>You are logged in already.</TitleComponent>

@@ -4,7 +4,7 @@
 
 // Importing part
 import {ReactNode} from "react";
-import {useRouter} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import HeaderComponent from '@/component/headerComponent';
 import FooterComponent from "@/component/footerComponent";
 import DashboardNavComponent from "@/component/dashboardNavComponent";
@@ -24,14 +24,25 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
     // Defining useRouter hook to navigate later if user wasn't logged in
     const router = useRouter();
 
+    // Defining pathname of url
+    const pathname = usePathname();
+
     // Defining firebase auth
     const auth = useFirebaseAuth();
 
+    // Defining pages whith no header
+    const noHeaderLink = ['/sign-up', '/login'];
+
+    // Defining small inner component which returns whole page with header and footer 
     function ReturnedElements():ReactNode {
         // Returning JSX
         return (
             <>
-                <HeaderComponent isUserLoggedIn={(auth.user !== null)} isDashboard={isDashboard} />
+                {
+                  (noHeaderLink.includes(pathname))
+                    ? false
+                    : <HeaderComponent isUserLoggedIn={(auth.user !== null)} isDashboard={isDashboard} />
+                } 
                 {
                     (isDashboard)
                         ? (
