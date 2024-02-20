@@ -2,10 +2,11 @@
 // Importing part
 import { ReactNode } from "react";
 import { JetBrains_Mono } from 'next/font/google';
+import { Metadata } from "next";
 
 // Defining font
 const JetbrainsMonoFont = JetBrains_Mono({
-  weight: ['300', '500', '700', '900'],
+  weight: ['300', '500', '700'],
   style: 'normal',
   subsets: ['latin']
 })
