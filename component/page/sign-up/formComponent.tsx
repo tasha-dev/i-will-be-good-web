@@ -6,6 +6,8 @@ import SubmitBtnComponent from "@/chunk/submitBtnComponent";
 import {Dispatch, ReactNode, useState} from "react";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
+import { useRouter } from "next/navigation";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 
 // Defining type of form
 const formSchema = z.object({
@@ -22,6 +24,9 @@ export default function FormComponent():ReactNode {
     // Creating state of component
     const [isValidating, setValidating]:[boolean, Dispatch<boolean>] = useState(false);
 
+    // Defining router
+    const router = useRouter();
+
     // Defining reactForm hook to use later in form
     const {
         register,
@@ -37,11 +42,18 @@ export default function FormComponent():ReactNode {
         if (data.password !== data.passwordRepeat) {
             setError('root', {message: 'The password and password repeat fields are not matching'});
         } else {
-            setValidating(true);
-            await new Promise((resolve) => setTimeout(resolve, 3000));
+            const auth = getAuth();
 
-            setValidating(false);
-            console.log(data);
+            setValidating(true);
+            createUserWithEmailAndPassword(auth, data.email, data.password)
+              .then(() => {
+                setValidating(false);
+                router.push('/');
+              })
+              .catch(() => {
+                setValidating(false);
+                setError('root', {message: 'There was an error. Please try again.'})
+              })
         }
     }
 

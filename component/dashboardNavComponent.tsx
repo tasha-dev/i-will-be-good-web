@@ -24,7 +24,8 @@ export default function DashboardNavComponent():ReactNode {
             </ul>
             <button 
               onClick={() => {
-                getAuth().signOut().then(() => router.push('/'))
+                router.push('/');
+                getAuth().signOut();
               }}
               className={'px-[30px] py-[10px] mt-[10px] text-white shrink-0 transition duration-500 bg-red-600 font-bold w-full hover:bg-red-700'}
             >
