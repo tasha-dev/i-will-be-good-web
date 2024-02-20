@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { JetBrains_Mono } from 'next/font/google';
 import { Metadata } from "next";
+import '@/app/index.css';
 
 // Defining font
 const JetbrainsMonoFont = JetBrains_Mono({
