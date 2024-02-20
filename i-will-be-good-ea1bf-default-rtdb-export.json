@@ -1,0 +1,34 @@
+{
+  "medication": {
+    "wPMZGNxasoOoU1JRbT51Gwie6Dr2": [
+      {
+        "dates": ["2024/19/2"],
+        "name": "Fluvoxamine",
+        "time": "14:30"
+      },
+      {
+        "dates": ["2024/19/2"],
+        "name": "Complex vitamin",
+        "time": "14:30"
+      },
+      {
+        "dates": ["2024/19/2"],
+        "name": "Vitamin E",
+        "time": "21:30"
+      },
+      {
+        "dates": ["2024/19/2"],
+        "name": "Risperidone",
+        "time": "21:30"
+      }
+    ]
+  },
+  "meditation": {
+    "wPMZGNxasoOoU1JRbT51Gwie6Dr2": [
+      {
+        "dates": ["2024/19/2"],
+        "time": "6:20"
+      }
+    ]
+  }
+}
