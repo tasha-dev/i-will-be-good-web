@@ -25,12 +25,12 @@ export default function FirstSectionComponent():ReactNode {
                           <div className="rounded-[20px] lg:h-auto h-[300px] flex items-center justify-center bg-themeBlue" >
                             <LoadingAnimateComponent />
                           </div>
-                        ) : <MedicationListComponent list={medication.data} />
+                        ) : <MedicationListComponent list={(medication.data) ? medication.data : []} />
                     } 
                     <div className={'lg:h-[300px] lg:justify-between gap-[20px] flex items-start flex-col'}>
                         <div>
                             <TitleComponent color={'text-themeBlue'} tier={2}>Prescription Prowesst</TitleComponent>
-                            <ParagraphComponent tier={2} noMarginBottom color={'text-gray-500'}>Paragraph: Navigating the intricate terrain of well-being demands a disciplined adherence to prescribed medications. Cultivating a strategic commitment to regular dosages is akin to mastering the art of self-care, where each pill becomes a purposeful stroke in the canvas of sustained health. By embracing the regimen, you empower yourself to steer the course towards optimal wellness, transforming the routine of medication into a deliberate and intelligent investment in your vitality.</ParagraphComponent>
+                            <ParagraphComponent tier={2} noMarginBottom color={'text-gray-500'}>Navigating the intricate terrain of well-being demands a disciplined adherence to prescribed medications. Cultivating a strategic commitment to regular dosages is akin to mastering the art of self-care, where each pill becomes a purposeful stroke in the canvas of sustained health. By embracing the regimen, you empower yourself to steer the course towards optimal wellness, transforming the routine of medication into a deliberate and intelligent investment in your vitality.</ParagraphComponent>
                         </div>
                         <ButtonComponent role={'primary'} href={'/dashboard/medication/'} theme={'blue'}>Report</ButtonComponent>
                     </div>
