@@ -3,9 +3,14 @@
 import {ReactNode} from "react";
 import ButtonComponent from "@/chunk/buttonComponent";
 import TitleComponent from "@/chunk/titleComponent";
+import { getAuth } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 // Creating and exporting dashboard nav component as default
 export default function DashboardNavComponent():ReactNode {
+    // Defining router
+    const router = useRouter();
+
     // Returning JSX
     return (
         <nav className={'lg:border-r border-r-themeBlue flex flex-col items-start justify-start'}>
@@ -17,7 +22,12 @@ export default function DashboardNavComponent():ReactNode {
                 <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/medication'} role={'primary'} theme={'blue'}>Medication Report</ButtonComponent></li>
                 <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/select'} role={'primary'} theme={'blue'}>Select medication and medications</ButtonComponent></li>
             </ul>
-            <button className={'px-[30px] py-[10px] mt-[10px] text-white shrink-0 transition duration-500 bg-red-600 font-bold w-full hover:bg-red-700'}>
+            <button 
+              onClick={() => {
+                getAuth().signOut().then(() => router.push('/'))
+              }}
+              className={'px-[30px] py-[10px] mt-[10px] text-white shrink-0 transition duration-500 bg-red-600 font-bold w-full hover:bg-red-700'}
+            >
                 Log out
             </button>
         </nav>
