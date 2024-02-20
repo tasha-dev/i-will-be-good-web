@@ -68,7 +68,7 @@ export default function PageComponent({children, loginRequired, isDashboard = fa
       );
     } else {
       if (loginRequired) {
-        if (auth.user === null) {router.push('/signIn')}
+        if (auth.user === null) {router.push('/login')}
         else {return <ReturnedElements />}
       } else {return <ReturnedElements /> }
     }

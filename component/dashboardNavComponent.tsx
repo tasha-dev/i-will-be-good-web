@@ -23,10 +23,7 @@ export default function DashboardNavComponent():ReactNode {
                 <li><ButtonComponent classNameProp={'w-full block truncate'} href={'/dashboard/select'} role={'primary'} theme={'blue'}>Select medication and medications</ButtonComponent></li>
             </ul>
             <button 
-              onClick={() => {
-                router.push('/');
-                getAuth().signOut();
-              }}
+              onClick={() => getAuth().signOut()}
               className={'px-[30px] py-[10px] mt-[10px] text-white shrink-0 transition duration-500 bg-red-600 font-bold w-full hover:bg-red-700'}
             >
                 Log out
