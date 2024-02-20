@@ -45,9 +45,9 @@ export default function CalendarComponent({activeDays}:propsType):ReactNode {
                     [...Array(getDaysInMonth(activeMonth))].map((item, index) => (
                         <div
                           key={index}
-                            data-today={(new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`).toISOString() === new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`).toISOString())}
-                            data-done={activeDays.includes(new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`).toISOString())}
-                            data-is-gone={(!activeDays.includes(new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`).toISOString()) && compareAsc(new Date(`${activeMonth.getFullYear()}-${activeMonth.getMonth() + 1}-${index + 1}`), subDays(new Date(), 1)) === -1)}
+                            data-today={(new Date(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`).toISOString() === new Date(`${activeMonth.getFullYear()}/${activeMonth.getMonth() + 1}/${index + 1}`).toISOString())}
+                            data-done={activeDays.includes(new Date(`${activeMonth.getFullYear()}/${activeMonth.getMonth() + 1}/${index + 1}`).toISOString())}
+                            data-is-gone={(!activeDays.includes(new Date(`${activeMonth.getFullYear()}/${activeMonth.getMonth() + 1}/${index + 1}`).toISOString()) && compareAsc(new Date(`${activeMonth.getFullYear()}/${activeMonth.getMonth() + 1}-${index + 1}`), subDays(new Date(), 1)) === -1)}
                             className={'aspect-square flex items-center justify-center text-[18px] font-normal text-white rounded-[10px] border data-[today="true"]:border-orange-500 data-[done="true"]:bg-green-600 data-[is-gone="true"]:bg-red-600'}
                         >
                             {index + 1}
