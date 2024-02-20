@@ -6,6 +6,8 @@ import SubmitBtnComponent from "@/chunk/submitBtnComponent";
 import {Dispatch, ReactNode, useState} from "react";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 // Defining type of form
 const formSchema = z.object({
@@ -23,19 +25,30 @@ export default function FormComponent():ReactNode {
     // Defining reactForm hook to use later in form
     const {
         register,
+        setError,
         handleSubmit,
         formState: {errors}
     } = useForm<formType>({
         resolver: zodResolver(formSchema)
     });
 
+    // Defining router
+    const router = useRouter();
+
     // Defining a function to handle the form onSubmit event
     const onSubmitEventHandler:SubmitHandler<formType> = async (data) => {
-        setValidating(true);
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        const auth = getAuth();
 
-        setValidating(false);
-        console.log(data);
+        setValidating(true);
+        signInWithEmailAndPassword(auth, data.email, data.password)
+          .then(() => {
+            setValidating(false);
+            router.push('/');
+          })
+          .catch(() => {
+            setValidating(false);
+            setError('root', {message: 'There was an error. Please try again.'})
+          })
     }
 
     // Returning JSX
