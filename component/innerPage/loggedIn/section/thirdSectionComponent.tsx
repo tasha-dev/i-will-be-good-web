@@ -1,4 +1,7 @@
 // Codes by mahdi tasha
+// Forcing nextJS to render this component as client side component
+'use client';
+
 // Importing part
 import {ReactNode} from "react";
 import ContainerComponent from "@/chunk/containerComponent";
@@ -6,21 +9,47 @@ import TitleWithCheckboxComponent from "@/chunk/titleWithCheckboxComponent";
 import TitleComponent from "@/chunk/titleComponent";
 import ParagraphComponent from "@/chunk/paragraphComponent";
 import ButtonComponent from "@/chunk/buttonComponent";
+import useFirebaseMeditation from "@/hook/firebase/useFirebaseMeditation";
+import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
+
+// Defining typs
+interface dataType {
+  dates: string[];
+  time: string;
+}
 
 // Creating and exporting third section of logged in home page as default
 export default function ThirdSectionComponent():ReactNode {
+    // Defining firebase
+    const meditation = useFirebaseMeditation();
+
     // Returning JSX
     return (
         <section>
             <ContainerComponent>
-                <header className={'mb-[20px]'}>
-                    <TitleWithCheckboxComponent
-                        theme={'themeBlue'}
-                        title={'Today meditation'}
-                        isChecked={false}
-                        date={new Date()}
-                    />
-                </header>
+                {
+                  (meditation.loading)
+                    ? (
+                        <div className="h-[50px] w-full flex items-center justify-center">
+                          <LoadingAnimateComponent />
+                        </div>
+                      ) : (meditation.data !== null)
+                        ? (
+                          <header className={'mb-[20px]'}> 
+                            {
+                              meditation.data?.map((item:dataType, index) => (
+                                <TitleWithCheckboxComponent 
+                                  key={index}
+                                  title={`Medication #${index + 1}`}
+                                  isChecked={item.dates.includes(`${new Date().getFullYear()}/${new Date().getDate()}/${new Date().getMonth() + 1}`)}
+                                  time={item.time}
+                                  theme="themeBlue"
+                                /> 
+                              ))
+                            }
+                          </header>
+                        ) : false
+                } 
                 <main>
                     <div className={'mb-[50px]'}>
                         <TitleComponent color={'text-themeBlue'} tier={2}>Mindful Mastery</TitleComponent>

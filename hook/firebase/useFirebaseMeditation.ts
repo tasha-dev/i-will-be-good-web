@@ -11,8 +11,8 @@ export type dataType = {
     name: string
 };
 
-// Creating and exporting useFirebaseMedication hook as default
-export default function useFirebaseMedication(): {
+// Creating and exporting useFirebaseMeditation hook as default
+export default function useFirebaseMeditation(): {
   loading: boolean,
   data: dataType[] | undefined
 } {
@@ -27,14 +27,13 @@ export default function useFirebaseMedication(): {
   useEffect(() => {
     if (!auth.isLoading) {
       const database = getDatabase();
-      const databaseRef = ref(database, `/medication/${auth.user?.uid}`);
+      const databaseRef = ref(database, `/meditation/${auth.user?.uid}`);
 
       onValue(databaseRef, (snapshot:DataSnapshot) => {
         const snapshotData = snapshot.val();
         
         setLoading(false);
         setData(snapshotData);
-        console.log(snapshotData);
       })
     }
   }, [auth.isLoading])
@@ -45,3 +44,4 @@ export default function useFirebaseMedication(): {
     data: data
   };
 }
+
