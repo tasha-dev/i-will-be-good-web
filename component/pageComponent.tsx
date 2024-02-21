@@ -36,7 +36,7 @@ export default function PageComponent({children, noMargin = false, loginRequired
     // Returning JSX
     return (
       <div>
-         <HeaderComponent isUserLoggedIn={(auth.user !== null)} isUserLogginIn={authPages.includes(pathname)} />
+         <HeaderComponent isUserLoggedIn={(auth.user !== null)} isUserLogginIn={false} />
          <ContainerComponent className={(!noMargin) ? "lg:mt-[100px] mt-0" : ''}>
            {children}
          </ContainerComponent>
@@ -55,7 +55,16 @@ export default function PageComponent({children, noMargin = false, loginRequired
       <h1>Loading</h1>
     );
   } else {
-    if (loginRequired) {
+    if (authPages.includes(pathname) && auth.user !== null) {
+      return (
+        <div>
+          <HeaderComponent isUserLoggedIn isUserLogginIn />
+          <ContainerComponent className="min-h-screen flex items-center justify-center">
+            <TitleComponent tier={0} theme="blue" className="text-center">You're logged in already</TitleComponent>
+          </ContainerComponent>
+        </div>
+      );
+    } else if (loginRequired) {
       if (auth.user !== null) { return <ReturnedComponent /> } 
       else { router.push('/login') }
     } else { return <ReturnedComponent /> }

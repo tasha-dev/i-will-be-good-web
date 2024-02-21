@@ -9,6 +9,7 @@ import LogoImage from '@/public/img/logo/img-logo-lotus.png';
 import BtnComponent from "@/chunk/btnComponent";
 import ContainerComponent from "@/chunk/containerComponent";
 import useScrolled from "@/hook/useScrolled";
+import Link from "next/link";
 
 // Defining type of props
 interface propsType {
@@ -34,7 +35,9 @@ export default function HeaderComponent({isUserLoggedIn, isUserLogginIn}:propsTy
           ? "flex items-center justify-center"
           : "flex items-center justify-between"
       }>
-        <Image width={50} height={50} alt="I will be good" src={LogoImage.src} />
+        <Link href={'/'}>
+          <Image width={50} height={50} alt="I will be good" src={LogoImage.src} />
+        </Link>
         {
           (isUserLogginIn)
             ? false
