@@ -36,7 +36,7 @@ export default function RootLayout({children}:propsType):ReactNode {
   // Returning JSX
   return (
     <html>
-      <body className={`${JetbrainsMonoFont.className}`}>
+      <body className={`${JetbrainsMonoFont.className} overflow-x-hidden`}>
         {children}
       </body>
     </html>

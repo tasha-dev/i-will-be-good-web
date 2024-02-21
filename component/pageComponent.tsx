@@ -13,10 +13,11 @@ import ContainerComponent from "@/chunk/containerComponent";
 interface propsType {
   loginRequired?: boolean;
   children: ReactNode;
+  noMargin?: boolean;
 }
 
 // Creating and exporting page component as default
-export default function PageComponent({children, loginRequired = false}:propsType):ReactNode {
+export default function PageComponent({children, noMargin = false, loginRequired = false}:propsType):ReactNode {
   // Defining firebase
   const auth = useFirebaseAuth();
 
@@ -35,7 +36,7 @@ export default function PageComponent({children, loginRequired = false}:propsTyp
     return (
       <div>
          <HeaderComponent isUserLoggedIn={(auth.user !== null)} isUserLogginIn={authPages.includes(pathname)} />
-         <ContainerComponent className="lg:mt-[100px] mt-0">
+         <ContainerComponent className={(!noMargin) ? "lg:mt-[100px] mt-0" : ''}>
            {children}
          </ContainerComponent>
          <h1>Footer</h1>

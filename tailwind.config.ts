@@ -10,7 +10,8 @@ const config: Config = {
     './chunk/*.{ts,tsx,js,jsx}',
     './chunk/**/*.{ts,tsx,js,jsx}',
     './component/*.{ts,tsx,js,jsx}',
-    './component/**/*.{ts,tsx,js,jsx}'
+    './component/**/*.{ts,tsx,js,jsx}',
+    './component/section/**/*.{ts,tsx,js,jsx}',
   ],
   theme: {
     extend: {
