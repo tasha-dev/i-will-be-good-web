@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import HeaderComponent from "./headerComponent";
 import ContainerComponent from "@/chunk/containerComponent";
+import TitleComponent from "@/chunk/titleComponent";
 
 // Defining type of props
 interface propsType {
@@ -39,7 +40,11 @@ export default function PageComponent({children, noMargin = false, loginRequired
          <ContainerComponent className={(!noMargin) ? "lg:mt-[100px] mt-0" : ''}>
            {children}
          </ContainerComponent>
-         <h1>Footer</h1>
+         <footer className="bg-themeGreen">
+          <ContainerComponent>
+            <TitleComponent tier={1} noMargin theme="white" className="text-center">Codes by mahdi tasha</TitleComponent>
+          </ContainerComponent>
+         </footer>
       </div> 
     );
   }
