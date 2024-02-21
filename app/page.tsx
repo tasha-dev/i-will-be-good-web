@@ -2,6 +2,7 @@
 // Importing part
 import PageComponent from "@/component/pageComponent";
 import FirstSectionComponent from "@/component/section/home/firstSectionComponent";
+import FourthSectionComponent from "@/component/section/home/fourthSectionComponent";
 import SecondSectionComponent from "@/component/section/home/secondSectionComponent";
 import ThirdSectionComponent from "@/component/section/home/thirdSectionComponent";
 import { ReactNode } from "react";
@@ -14,6 +15,7 @@ export default function HomePage():ReactNode {
       <FirstSectionComponent />
       <SecondSectionComponent />
       <ThirdSectionComponent />
+      <FourthSectionComponent />
     </PageComponent>
   );
 }
