@@ -8,7 +8,7 @@ export default function HomePage():ReactNode {
   // Returning JSX
   return (
     <PageComponent>
-      <h1>Home</h1> 
+      <div className="h-[1000px] w-full bg-red-600" />
     </PageComponent>
   );
 }
