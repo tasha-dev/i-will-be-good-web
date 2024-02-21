@@ -4,7 +4,7 @@
 
 // Importing part
 import useFirebaseAuth from "@/hook/useFirebaseAuth";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import HeaderComponent from "./headerComponent";
 import ContainerComponent from "@/chunk/containerComponent";
@@ -23,12 +23,18 @@ export default function PageComponent({children, loginRequired = false}:propsTyp
   // Defining router 
   const router = useRouter();
 
+  // Auth pages
+  const authPages = ['/login', '/signup'];
+
+  // Defining pathname
+  const pathname = usePathname();
+
   // Defining the rturned component
   function ReturnedComponent():ReactNode {
     // Returning JSX
     return (
       <div>
-         <HeaderComponent isUserLoggedIn={(auth.user !== null)} />
+         <HeaderComponent isUserLoggedIn={(auth.user !== null)} isUserLogginIn={authPages.includes(pathname)} />
          <ContainerComponent className="lg:mt-[100px] mt-0">
            {children}
          </ContainerComponent>
