@@ -2,6 +2,7 @@
 // Importing part
 import PageComponent from "@/component/pageComponent";
 import FirstSectionComponent from "@/component/section/home/firstSectionComponent";
+import SecondSectionComponent from "@/component/section/home/secondSectionComponent";
 import { ReactNode } from "react";
 
 // Creataing and exporting home page as default
@@ -10,6 +11,7 @@ export default function HomePage():ReactNode {
   return (
     <PageComponent noMargin>
       <FirstSectionComponent />
+      <SecondSectionComponent />
     </PageComponent>
   );
 }

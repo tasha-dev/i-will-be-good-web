@@ -11,8 +11,8 @@ interface propsType {
   children: ReactNode;
 }
 
-// Creating and exporting paragraph component as default
-export default function ParagraphComponent({className = '', tier, noMargin = false, theme = 'grey', children}:propsType):ReactNode {
+// Creating and exporting title component as default
+export default function TitleComponent({className = '', tier, noMargin = false, theme = 'grey', children}:propsType):ReactNode {
   // Conditional rendering
   if (tier === 0) {
     return (
