@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 interface propsType {
   className?: string;
   noMargin?: boolean;
-  theme?: 'grey' | 'blue' | 'green';
+  theme?: 'grey' | 'blue' | 'green' | 'white';
   tier: 0 | 1 | 2;
   children: ReactNode;
 }
@@ -18,7 +18,7 @@ export default function TitleComponent({className = '', tier, noMargin = false, 
     return (
       <h1
         className={`lg:text-[30px] text-[20px] font-bold
-          ${(noMargin) ? '' : 'mb-[20px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : 'text-themeBlue'} ${className}`}
+          ${(noMargin) ? '' : 'mb-[20px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : (theme === 'blue') ? 'text-themeBlue' : 'text-white'} ${className}`}
       >
         {children}
       </h1>
@@ -27,7 +27,7 @@ export default function TitleComponent({className = '', tier, noMargin = false, 
     return (
       <h3
         className={`lg:text-[20px] text-[15px] font-bold
-          ${(noMargin) ? '' : 'mb-[10px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : 'text-themeBlue'} ${className}`}
+          ${(noMargin) ? '' : 'mb-[10px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : (theme === 'blue') ? 'text-themeBlue' : 'text-white'} ${className}`}
       >
         {children}
       </h3>
@@ -36,7 +36,7 @@ export default function TitleComponent({className = '', tier, noMargin = false, 
     return (
       <h6
         className={`lg:text-[12px] text-[10px] font-normal
-          ${(noMargin) ? '' : 'mb-[5px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : 'text-themeBlue'} ${className}`}
+          ${(noMargin) ? '' : 'mb-[5px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : (theme === 'blue') ? 'text-themeBlue' : 'text-white'} ${className}`}
       >
         {children}
       </h6>

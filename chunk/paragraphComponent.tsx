@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 interface propsType {
   className?: string;
   noMargin?: boolean;
-  theme?: 'grey' | 'blue' | 'green';
+  theme?: 'grey' | 'blue' | 'green' | 'white';
   children: ReactNode;
 }
 
@@ -16,7 +16,7 @@ export default function ParagraphComponent({className = '', noMargin = false, th
   return (
     <p
       className={`lg:text-[16px] text-[14px] font-light 
-        ${(noMargin) ? '' : 'mb-[15px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : 'text-themeBlue'} ${className}`}
+        ${(noMargin) ? '' : 'mb-[15px]'} ${(theme === 'grey') ? 'text-grey-400' : (theme === 'green') ? 'text-themeGreen' : (theme === 'blue') ? 'text-themeBlue' : 'text-white'} ${className}`}
     >
       {children}
     </p>
