@@ -24,7 +24,7 @@ export default function DashboardNavLinkComponent({link, children}:propsType):Re
       <Link 
         data-active={(pathname.includes(link))}
         href={link}
-        className="w-full block p-[10px] text-left text-[14px] font-normal data-[active='false']:bg-transparent data-[active='true']:bg-white data-[active='false']:text-white data-[active='true']:text-themeBlue"
+        className="w-full block p-[10px] text-left text-[14px] font-normal data-[active='false']:bg-transparent data-[active='true']:bg-themeGreen text-white"
       >
         {children}
       </Link>
