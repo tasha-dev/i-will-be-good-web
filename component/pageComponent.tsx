@@ -37,7 +37,7 @@ export default function PageComponent({children, noMargin = false, loginRequired
     // Returning JSX
     return (
       <div>
-         <HeaderComponent isUserLoggedIn={(auth.user !== null)} isUserLogginIn={false} />
+         <HeaderComponent isUserLoggedIn={(auth.user !== null)} isUserLogginIn={authPages.includes(pathname)} />
          <ContainerComponent className={(!noMargin) ? "lg:mt-[100px] mt-0" : ''}>
            {children}
          </ContainerComponent>

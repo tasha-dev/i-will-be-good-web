@@ -10,7 +10,7 @@ import FormComponent from "@/component/section/login/formComponent";
 export default function LoginPage():ReactNode {
   // Returning JSX
   return (
-    <PageComponent>
+    <PageComponent noMargin>
        <Image alt="Image of a woman meditating" src={MainImage.src} width={1000} height={1000} className="h-[300px] w-full object-cover mb-[50px]" />
        <FormComponent />
     </PageComponent>

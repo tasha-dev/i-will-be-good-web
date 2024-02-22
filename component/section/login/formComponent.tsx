@@ -8,6 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
 import InputComponent from "@/chunk/inputComponent";
+import SubmitButttonComponent from "@/chunk/submitButtonComponent";
 
 // Defining type of form
 const formSchema = z.object({
@@ -19,7 +20,6 @@ type formType = z.infer<typeof formSchema>;
 
 // Creating and exporting form component as default
 export default function FormComponent():ReactNode {
-  // Defining state of component
   // Defining useForm hook
   const {
     register,
@@ -55,6 +55,7 @@ export default function FormComponent():ReactNode {
             </div>
           ) : false
       }
-</form>
+      <SubmitButttonComponent isValidating={isValidating} />
+    </form>
   );
 }

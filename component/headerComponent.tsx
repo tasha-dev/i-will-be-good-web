@@ -28,7 +28,11 @@ export default function HeaderComponent({isUserLoggedIn, isUserLogginIn}:propsTy
   return (
     <header 
       data-scrolled={isScrolled}
-      className="lg:fixed shadow-lg static top-0 left-0 z-20 w-full transition-all duration-500 data-[scrolled='false']:bg-transparent data-[scrolled='false']:shadow-transparent data-[scrolled='true']:bg-white data-[scrolled='true']:shadow-black/10"
+      className={
+        (!isUserLogginIn)
+          ? "lg:fixed shadow-lg static top-0 left-0 z-20 w-full transition-all duration-500 data-[scrolled='false']:bg-transparent data-[scrolled='false']:shadow-transparent data-[scrolled='true']:bg-white data-[scrolled='true']:shadow-black/10"
+          : "w-full bg-white"
+      }
     >
       <ContainerComponent className={
         (isUserLogginIn)
