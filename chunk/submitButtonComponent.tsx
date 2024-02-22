@@ -19,7 +19,7 @@ export default function SubmitButttonComponent({isValidating, className = ''}:pr
     >
       {
         (isValidating)
-          ? <LoadingAnimateComponent /> 
+          ? <LoadingAnimateComponent size={20} /> 
           : 'Submit'
       }
     </button>
