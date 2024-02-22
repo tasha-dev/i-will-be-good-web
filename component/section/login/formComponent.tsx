@@ -3,7 +3,7 @@
 'use client';
 
 // Importing part
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
@@ -22,15 +22,15 @@ type formType = z.infer<typeof formSchema>;
 
 // Creating and exporting form component as default
 export default function FormComponent():ReactNode {
+  // Defining states of component
+  const [isValidating, setValidating] = useState<boolean>(false);
+
   // Defining useForm hook
   const {
     register,
     handleSubmit,
     setError,
-    formState: {
-      errors,
-      isValidating
-    }
+    formState: {errors}
   } = useForm<formType>({
     resolver: zodResolver(formSchema)
   })
@@ -42,9 +42,16 @@ export default function FormComponent():ReactNode {
   const onSubmitHandler:SubmitHandler<formType> = (data) => {
     const auth = getAuth();
 
+    setValidating(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
-      .then(() => router.push('/medication'))
-      .catch(() => setError('root', {message: 'There was an error. Please try again.'}))
+      .then(() => {
+        setValidating(false);
+        router.push('/dashboard/medication')
+      })
+      .catch(() => {
+        setValidating(false);
+        setError('root', {message: 'There was an error. Please try again.'})
+      })
   }
 
   // Returning JSX
