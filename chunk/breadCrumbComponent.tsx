@@ -16,9 +16,9 @@ export default function BreadCrumbComponent():ReactNode {
 
   // Returning JSX
   return (
-    <div className="flex flex-wrap gap-[5px] flex-wrap items-center">
+    <div className="flex flex-wrap gap-[5px] flex-wrap items-center mb-[20px]">
       <div className="flex gap-[5px] items-center">
-        <Image width={50} height={50} alt="Logo of i will be good" src={LogoImage.src} />
+        <Image width={50} height={50} alt="Logo of i will be good" src={LogoImage.src} className="w-[50px] h-[50px] aspect-square object-cover" />
         <span>/</span>
       </div> 
       {
