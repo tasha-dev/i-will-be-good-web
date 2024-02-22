@@ -46,7 +46,7 @@ export default function HeaderComponent({isUserLoggedIn, isUserLogginIn}:propsTy
           (isUserLogginIn)
             ? false
             : (
-              <BtnComponent link={(isUserLoggedIn) ? '/dashboard/select' : '/login'}>
+              <BtnComponent link={(isUserLoggedIn) ? '/dashboard' : '/login'}>
                 {
                   (isUserLoggedIn)
                     ? 'Dashboard'
