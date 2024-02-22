@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
 import InputComponent from "@/chunk/inputComponent";
 import SubmitButttonComponent from "@/chunk/submitButtonComponent";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 // Defining type of form
 const formSchema = z.object({
@@ -33,9 +35,16 @@ export default function FormComponent():ReactNode {
     resolver: zodResolver(formSchema)
   })
 
+  // Defining router
+  const router = useRouter();
+
   // Defining a function to handle submit event
   const onSubmitHandler:SubmitHandler<formType> = (data) => {
-    console.log(data);
+    const auth = getAuth();
+
+    signInWithEmailAndPassword(auth, data.email, data.password)
+      .then(() => router.push('/medication'))
+      .catch(() => setError('root', {message: 'There was an error. Please try again.'}))
   }
 
   // Returning JSX
