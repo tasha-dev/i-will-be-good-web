@@ -9,6 +9,7 @@ import { ReactNode } from "react";
 import HeaderComponent from "./headerComponent";
 import ContainerComponent from "@/chunk/containerComponent";
 import TitleComponent from "@/chunk/titleComponent";
+import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 
 // Defining type of props
 interface propsType {
@@ -52,7 +53,9 @@ export default function PageComponent({children, noMargin = false, loginRequired
   // Conditional rendering
   if (auth.isLoading) {
     return (
-      <h1>Loading</h1>
+      <div className="w-screen h-screen flex items-center justify-center bg-white">
+        <LoadingAnimateComponent />
+      </div>
     );
   } else {
     if (authPages.includes(pathname) && auth.user !== null) {
