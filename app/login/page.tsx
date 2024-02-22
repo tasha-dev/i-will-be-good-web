@@ -13,6 +13,7 @@ export default function LoginPage():ReactNode {
   // Returning JSX
   return (
     <PageComponent noMargin>
+       <TitleComponent theme="blue" tier={0}>Login:</TitleComponent>
        <Image alt="Image of a woman meditating" src={MainImage.src} width={1000} height={1000} className="h-[300px] w-full object-cover mb-[50px]" />
        <FormComponent />
        <TitleComponent tier={1} theme="grey" className="mt-[20px]">
