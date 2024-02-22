@@ -9,6 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
 import InputComponent from "@/chunk/inputComponent";
 import SubmitButttonComponent from "@/chunk/submitButtonComponent";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 // Defining type of form
 const formSchema = z.object({
@@ -35,12 +37,19 @@ export default function FormComponent():ReactNode {
     resolver: zodResolver(formSchema)
   })
 
+  // Defining router
+  const router = useRouter();
+
   // Defining a function to handle submit event
   const onSubmitHandler:SubmitHandler<formType> = (data) => {
     if (data.passwordRepeat !== data.password) {
       setError('root', {message: 'The password and its repeat are not equal'})
     } else {
-      console.log(data);
+      const auth = getAuth();
+
+      createUserWithEmailAndPassword(auth, data.email, data.password)
+        .then(() => router.push('/medication'))
+        .catch(() => setError('root', {message: 'There was an error. Please try again.'}))
     }
   }
 
@@ -56,7 +65,7 @@ export default function FormComponent():ReactNode {
       {
         (errors.root?.message)
           ? (
-            <div className="mt-[20px]">
+            <div className="my-[20px]">
               <p className="text-red-600 lg:text-[16px] text-[13px] font-bold">
                 {errors.root?.message}
               </p>

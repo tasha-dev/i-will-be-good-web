@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from 'zod';
 import InputComponent from "@/chunk/inputComponent";
 import SubmitButttonComponent from "@/chunk/submitButtonComponent";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 // Defining type of form
@@ -57,7 +57,7 @@ export default function FormComponent():ReactNode {
       {
         (errors.root?.message)
           ? (
-            <div className="mt-[20px]">
+            <div className="my-[20px]">
               <p className="text-red-600 lg:text-[16px] text-[13px] font-bold">
                 {errors.root?.message}
               </p>
