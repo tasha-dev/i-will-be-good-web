@@ -33,7 +33,7 @@ export default function CalendarComponent({activeDays}:propsType):ReactNode {
 
   // Defining some dates
   const today = `${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`;
-  const customDate = (date:number) => `${new Date().getFullYear()}/${new Date().getMonth() + 1}/${date}`
+  const customDate = (date:number) => `${activeMonth.getFullYear()}/${activeMonth.getMonth() + 1}/${date}`
 
   // Returning JSX
   return (
