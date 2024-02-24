@@ -13,11 +13,13 @@ import { findDesc } from "@/api/medication";
 import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 import CalendarComponent from "@/component/calendar/calendarComponent";
 import TitleWCheckboxComponent from "@/chunk/titleWCheckboxComponent";
+import useFirebaseAuth from "@/hook/useFirebaseAuth";
 
 // Creating and exporting medication dashboard page as default
 export default function MedicationDashboardPage():ReactNode {
   // Defining firebase
   const database = useFirebaseMedication();
+  const auth = useFirebaseAuth();
 
   // Returning JSX
   return (
@@ -27,7 +29,7 @@ export default function MedicationDashboardPage():ReactNode {
         <MedicationModalComponent />
       </div>
       {
-        (!database.loading)
+        (!database.loading && !auth.isLoading)
           ? (
             <ul className="flex flex-col gap-[20px]">
               {
@@ -36,8 +38,9 @@ export default function MedicationDashboardPage():ReactNode {
                     <TitleWCheckboxComponent 
                       name={item.name} 
                       time={item.time} 
-                      isChecked={item.dates?.includes(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`)}
-                    /> 
+                      index={index}
+                      isMedication
+                      isChecked={(item.dates) ? item.dates.includes(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`) : false} /> 
                     { 
                     (findDesc(item.name) !== undefined)
                       ? <ParagraphComponent>{findDesc(item.name)}</ParagraphComponent> 
