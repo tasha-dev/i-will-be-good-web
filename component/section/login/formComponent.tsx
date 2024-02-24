@@ -70,7 +70,7 @@ export default function FormComponent():ReactNode {
               </p>
             </div>
           ) : false
-      }
+      } 
       <SubmitButttonComponent isValidating={isValidating} />
     </form>
   );

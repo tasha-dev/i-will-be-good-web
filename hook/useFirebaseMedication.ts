@@ -1,7 +1,7 @@
 // Codes byy mahdi tasha
 // Importing part
 import useFirebaseAuth from "@/hook/useFirebaseAuth";
-import { DataSnapshot, getDatabase, onValue, ref } from "firebase/database";
+import { DataSnapshot, DatabaseReference, getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 // Defining types
@@ -14,7 +14,8 @@ export type dataType = {
 // Creating and exporting useFirebaseMedication hook as default
 export default function useFirebaseMedication(): {
   loading: boolean,
-  data: dataType[] | undefined
+  data: dataType[] | undefined,
+  ref: DatabaseReference | undefined
 } {
   // Defining auth
   const auth = useFirebaseAuth();
@@ -22,6 +23,7 @@ export default function useFirebaseMedication(): {
   // Defining states of component
   const [isLoading, setLoading] = useState<boolean>(auth.isLoading);
   const [data, setData] = useState<dataType[] | undefined>();
+  const [dbRef, setDbRef] = useState<DatabaseReference | undefined>();
 
   // Using useEffect hook to set data
   useEffect(() => {
@@ -30,12 +32,11 @@ export default function useFirebaseMedication(): {
       const databaseRef = ref(database, `/medication/${auth.user?.uid}`);
 
       onValue(databaseRef, (snapshot:DataSnapshot) => {
-        // const emptyArray = [];
         const snapshotData = snapshot.val();
         
         setLoading(false);
         setData(snapshotData);
-        console.log(snapshotData);
+        setDbRef(databaseRef);
       })
     }
   }, [auth.isLoading])
@@ -43,6 +44,7 @@ export default function useFirebaseMedication(): {
   // Returning 
   return {
     loading: isLoading,
-    data: data
+    data: data,
+    ref: dbRef
   };
 }

@@ -21,8 +21,8 @@ export default function ModalComponent({children, title}:propsType):ReactNode {
   // Defining useEffect hook to add class to body element 
   useEffect(() => {
     (opened)
-      ? document.body.style.overflow = 'hidden'
-      : document.body.style.overflow = 'auto';
+      ? document.body.style.overflowY = 'hidden'
+      : document.body.style.overflowY = 'auto';
   }, [opened])
 
   // Returning JSX
@@ -43,7 +43,7 @@ export default function ModalComponent({children, title}:propsType):ReactNode {
         />
         <div 
           data-opened={opened}
-          className="bg-white transition-all duration-500 rounded-[10px] fixed top-[50%] left-[50%] lg:w-[50vw] lg:h-[50dvh] w-[calc(100%-20px)] h-[calc(100%-20px)] -translate-x-[50%] -translate-y-[50%] z-[101] p-[20px] shadow-lg data-[opened='false']:opacity-0 data-[opened='false']:invisible data-[opened='false']:scale-95 data-[opened='true']:opacity-100 data-[opened='true']:visible data-[opened='true']:scale-100"
+          className="bg-white transition-all overflow-x-hidden overflow-y-auto duration-500 rounded-[10px] fixed top-[50%] left-[50%] lg:w-[50vw] lg:h-[50dvh] w-[calc(100%-20px)] h-[calc(100%-20px)] -translate-x-[50%] -translate-y-[50%] z-[101] p-[20px] shadow-lg data-[opened='false']:opacity-0 data-[opened='false']:invisible data-[opened='false']:scale-95 data-[opened='true']:opacity-100 data-[opened='true']:visible data-[opened='true']:scale-100"
         >
            {children}
         </div>
