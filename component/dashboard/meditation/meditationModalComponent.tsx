@@ -43,7 +43,7 @@ export default function MeditationModalComponent():ReactNode {
 
     if (ref) {
       push(ref, {
-        dates: [],
+        dates: [`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`],
         time: data.time
       })
     } else {

@@ -50,12 +50,13 @@ export default function TitleWCheckboxComponent({name, index, time, isChecked, i
           const newVal = prevVal.filter((item:string) => item !== today);
           set(newDbRef, newVal);
         } else {
-          if (prevVal) {
-            const newVal = [...prevVal];
-            newVal.push(today);
+          let newVal:any[];
 
-            set(newDbRef, newVal);
-          }
+          if (prevVal === null || prevVal === undefined) {newVal = []} 
+          else {newVal = [...prevVal];}
+
+          newVal.push(today);
+          set(newDbRef, newVal);
         }
       }} type="checkbox" checked={isChecked} className="aspect-square w-[50px]" />
       <div>

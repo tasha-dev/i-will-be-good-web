@@ -8,7 +8,6 @@ import DashboardPageComponent from "@/component/dashboard/dashboardPageComponent
 import { ReactNode } from "react";
 import MeditationModalComponent from "@/component/dashboard/meditation/meditationModalComponent";
 import useFirebaseMeditation from "@/hook/useFirebaseMeditation";
-import ParagraphComponent from "@/chunk/paragraphComponent";
 import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 import CalendarComponent from "@/component/calendar/calendarComponent";
 import TitleWCheckboxComponent from "@/chunk/titleWCheckboxComponent";
