@@ -12,6 +12,7 @@ import ParagraphComponent from "@/chunk/paragraphComponent";
 import { findDesc } from "@/api/medication";
 import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 import CalendarComponent from "@/component/calendar/calendarComponent";
+import TitleWCheckboxComponent from "@/chunk/titleWCheckboxComponent";
 
 // Creating and exporting medication dashboard page as default
 export default function MedicationDashboardPage():ReactNode {
@@ -32,10 +33,11 @@ export default function MedicationDashboardPage():ReactNode {
               {
                 database.data?.map((item, index) => (
                   <li key={index}>
-                    <div className="mb-[15px] flex justify-between items-center gap-[20px] flex-wrap">
-                      <TitleComponent noMargin tier={1} theme="green">{item.name}</TitleComponent>
-                      <TitleComponent tier={2} theme="grey">{item.time}</TitleComponent>
-                    </div>
+                    <TitleWCheckboxComponent 
+                      name={item.name} 
+                      time={item.time} 
+                      isChecked={item.dates?.includes(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`)}
+                    /> 
                     { 
                     (findDesc(item.name) !== undefined)
                       ? <ParagraphComponent>{findDesc(item.name)}</ParagraphComponent> 
