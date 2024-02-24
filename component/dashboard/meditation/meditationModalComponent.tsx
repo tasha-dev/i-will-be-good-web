@@ -12,12 +12,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import InputComponent from "@/chunk/inputComponent";
 import SubmitButttonComponent from "@/chunk/submitButtonComponent";
 import ParagraphComponent from "@/chunk/paragraphComponent";
-import useFirebaseMedication from "@/hook/useFirebaseMedication";
+import useFirebaseMeditation from "@/hook/useFirebaseMeditation";
 import { push } from "firebase/database";
 
 // Defining type of form
 const formSchema = z.object({
-  name: z.string().min(2).max(20),
   time: z.string().regex(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)
 });
 
@@ -36,7 +35,7 @@ export default function MeditationModalComponent():ReactNode {
   });
 
   // Defining firebase
-  const database = useFirebaseMedication();
+  const database = useFirebaseMeditation();
 
   // Defining a function to handle submit event of form
   const onSubmitEvenetHandler:SubmitHandler<formType> = (data) => {
@@ -45,7 +44,6 @@ export default function MeditationModalComponent():ReactNode {
     if (ref) {
       push(ref, {
         dates: [],
-        name: data.name,
         time: data.time
       })
     } else {
@@ -58,7 +56,6 @@ export default function MeditationModalComponent():ReactNode {
     <ModalComponent title="Add">
       <TitleComponent tier={1} theme="blue">Add meditations:</TitleComponent>
       <form action="#" onSubmit={handleSubmit(onSubmitEvenetHandler)} className="flex flex-col gap-[20px]">
-        <InputComponent register={register} errorText={errors.name?.message} registerName="name" label="Name" />
         <InputComponent register={register} errorText={errors.time?.message} registerName="time" label="Time" type="time" />
         {
           (errors.root?.message)
