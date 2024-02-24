@@ -32,11 +32,16 @@ export default function useFirebaseMedication(): {
       const databaseRef = ref(database, `/medication/${auth.user?.uid}`);
 
       onValue(databaseRef, (snapshot:DataSnapshot) => {
+        const newArr:any[] = [];
         const snapshotData = snapshot.val();
-        
-        setLoading(false);
-        setData(snapshotData);
-        setDbRef(databaseRef);
+
+        if (snapshotData) {
+          Object.values(snapshotData).map((item) => newArr.push(item));
+          setLoading(false);
+
+          setData(newArr);
+          setDbRef(databaseRef);
+        }
       })
     }
   }, [auth.isLoading])

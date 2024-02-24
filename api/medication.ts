@@ -8,6 +8,18 @@ interface itemType {
 // Creating and exporting array of 50 famous medications with their names and description about them.
 export const medications:itemType[] = [
   {
+    "name" : "Risperidone",
+    "description" : "It is commonly prescribed for the treatment of schizophrenia, bipolar disorder, and irritability associated with autism."
+  },
+  {
+    "name" : "Vitamin E",
+    "description" : "Vitamin E is a fat-soluble vitamin that exists in various forms, with alpha-tocopherol being the most biologically active form for humans."
+  },
+  {
+    "name" : "Fluvoxamine",
+    "description" : "Fluvoxamine is a selective serotonin reuptake inhibitor (SSRI), which is a class of antidepressant medications."
+  },
+  {
     "name": "Aspirin",
     "description": "Commonly used for pain relief and reducing inflammation."
   },
@@ -189,9 +201,9 @@ export const medications:itemType[] = [
   }
 ]
 
-// Creating a function to find medication with string
-export function find(string:string):itemType[] | [] {
+// Creating a function to find descriptiong of medication with string
+export function findDesc(string:string):string | undefined {
   const term = string.toLowerCase();
 
-  return medications.filter((medication) => medication.name.toLowerCase().includes(term));
+  return medications.find((medication) => medication.name.toLowerCase() === term)?.description;
 }
