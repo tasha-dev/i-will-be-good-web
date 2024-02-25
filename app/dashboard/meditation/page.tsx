@@ -12,6 +12,7 @@ import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 import CalendarComponent from "@/component/calendar/calendarComponent";
 import TitleWCheckboxComponent from "@/chunk/titleWCheckboxComponent";
 import useFirebaseAuth from "@/hook/useFirebaseAuth";
+import DeleteBtnComponent from "@/chunk/deleteBtnComponent";
 
 // Creating and exporting meditation dashboard page as default
 export default function MeditationDashboardPage():ReactNode {
@@ -33,13 +34,14 @@ export default function MeditationDashboardPage():ReactNode {
               {
                 database.data?.map((item, index) => (
                   <li key={index}>
-                    <div className="mb-[15px] flex justify-between items-center gap-[20px] flex-wrap">
+                    <div className="mb-[20px] flex justify-between items-center gap-[20px] flex-wrap">
                       <TitleWCheckboxComponent 
                         name={`Meditation Number #${index+1}`}
                         time={item.time}
                         index={index}
                         isChecked={item.dates?.includes(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`)}
                       />
+                      <DeleteBtnComponent index={index} />
                     </div>
                     {
                       (item.dates && item.dates.length !== 0)
