@@ -13,7 +13,8 @@ import InputComponent from "@/chunk/inputComponent";
 import SubmitButttonComponent from "@/chunk/submitButtonComponent";
 import ParagraphComponent from "@/chunk/paragraphComponent";
 import useFirebaseMeditation from "@/hook/useFirebaseMeditation";
-import { push } from "firebase/database";
+import useFirebaseAuth from "@/hook/useFirebaseAuth";
+import { push, set, ref, getDatabase } from "firebase/database";
 
 // Defining type of form
 const formSchema = z.object({
@@ -36,13 +37,22 @@ export default function MeditationModalComponent():ReactNode {
 
   // Defining firebase
   const database = useFirebaseMeditation();
+  const auth = useFirebaseAuth();
 
   // Defining a function to handle submit event of form
   const onSubmitEvenetHandler:SubmitHandler<formType> = (data) => {
-    const ref = database.ref;
+    const dbRef = database.ref;
 
-    if (ref) {
-      push(ref, {
+    if (dbRef !== undefined) {
+      push(dbRef, {
+        dates: [`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`],
+        time: data.time
+      }) 
+    } else if (dbRef === undefined) {
+      const db = getDatabase();
+      const newRef = ref(db, `/meditation/${auth.user?.uid}/0`)
+
+      set(newRef, {
         dates: [`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`],
         time: data.time
       })
