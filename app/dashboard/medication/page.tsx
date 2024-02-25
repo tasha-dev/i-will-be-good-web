@@ -14,6 +14,9 @@ import LoadingAnimateComponent from "@/chunk/loadingAnimateComponent";
 import CalendarComponent from "@/component/calendar/calendarComponent";
 import TitleWCheckboxComponent from "@/chunk/titleWCheckboxComponent";
 import useFirebaseAuth from "@/hook/useFirebaseAuth";
+import IconComponent from "@/chunk/iconComponent";
+import { getDatabase, ref } from "firebase/database";
+import DeleteBtnComponent from "@/chunk/deleteBtnComponent";
 
 // Creating and exporting medication dashboard page as default
 export default function MedicationDashboardPage():ReactNode {
@@ -35,13 +38,17 @@ export default function MedicationDashboardPage():ReactNode {
               {
                 database.data?.map((item, index) => (
                   <li key={index}>
-                    <TitleWCheckboxComponent 
-                      name={item.name} 
-                      time={item.time} 
-                      index={index}
-                      isMedication
-                      isChecked={(item.dates) ? item.dates.includes(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`) : false} /> 
-                    { 
+                    <div className="flex items-center mb-[20px] justify-between gap-[20px] flex-wrap">
+                      <TitleWCheckboxComponent 
+                        name={item.name} 
+                        time={item.time} 
+                        index={index}
+                        isMedication
+                        isChecked={(item.dates) ? item.dates.includes(`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`) : false} 
+                      /> 
+                      <DeleteBtnComponent index={index} isMedication /> 
+                    </div> 
+                    {
                     (findDesc(item.name) !== undefined)
                       ? <ParagraphComponent>{findDesc(item.name)}</ParagraphComponent> 
                       : false

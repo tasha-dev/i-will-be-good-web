@@ -24,7 +24,7 @@ export default function TitleWCheckboxComponent({name, index, time, isChecked, i
 
   // Returning JSX
   return (
-    <div className="mb-[20px] flex items-center justify-start gap-[20px] flex-wrap">
+    <div className="flex items-center justify-start gap-[20px] flex-wrap">
       <input onChange={(event) => {
         const refString = `/${(isMedication) ? 'medication' : 'meditation'}/${auth.user?.uid}`;
         const db = getDatabase();
