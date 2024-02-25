@@ -37,7 +37,7 @@ export default function DeleteBtnComponent({index, isMedication = false}:propsTy
 
         const newRef = ref(db, newString);
         console.log(newString);
-        set(newRef, null)
+        set(newRef, null).then(() => window.location.reload())
       }}
       className="w-[50px] h-[50px] aspect-square flex items-center justify-center bg-red-600 rounded-[10px]"
     >

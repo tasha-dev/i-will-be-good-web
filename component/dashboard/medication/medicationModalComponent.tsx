@@ -13,7 +13,8 @@ import InputComponent from "@/chunk/inputComponent";
 import SubmitButttonComponent from "@/chunk/submitButtonComponent";
 import ParagraphComponent from "@/chunk/paragraphComponent";
 import useFirebaseMedication from "@/hook/useFirebaseMedication";
-import { push } from "firebase/database";
+import { getDatabase, push, set, ref } from "firebase/database";
+import useFirebaseAuth from "@/hook/useFirebaseAuth";
 
 // Defining type of form
 const formSchema = z.object({
@@ -37,13 +38,23 @@ export default function MedicationModalComponent():ReactNode {
 
   // Defining firebase
   const database = useFirebaseMedication();
+  const auth = useFirebaseAuth();
 
   // Defining a function to handle submit event of form
   const onSubmitEvenetHandler:SubmitHandler<formType> = (data) => {
-    const ref = database.ref;
+    const dbRef = database.ref;
 
-    if (ref) {
-      push(ref, {
+    if (dbRef !== undefined) {
+      push(dbRef, {
+        dates: [`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`],
+        name: data.name,
+        time: data.time
+      }) 
+    } else if (dbRef === undefined) {
+      const db = getDatabase();
+      const newRef = ref(db, `/medication/${auth.user?.uid}/0`)
+
+      set(newRef, {
         dates: [`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`],
         name: data.name,
         time: data.time

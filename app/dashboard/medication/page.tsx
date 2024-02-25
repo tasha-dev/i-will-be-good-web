@@ -33,8 +33,11 @@ export default function MedicationDashboardPage():ReactNode {
       </div>
       {
         (!database.loading && !auth.isLoading)
-          ? (
-            <ul className="flex flex-col gap-[20px]">
+          ? (database.data?.length === 0 || database.data === null) 
+            ? (
+              <TitleComponent tier={1} theme="green">No Item were Found</TitleComponent>
+            ) : (
+              <ul className="flex flex-col gap-[20px]">
               {
                 database.data?.map((item, index) => (
                   <li key={index}>
@@ -61,8 +64,9 @@ export default function MedicationDashboardPage():ReactNode {
                   </li>
                 ))
               }
-            </ul>
-          ) : (
+              </ul>
+            )
+          : (
             <div className="h-[300px] flex items-center justify-center">
               <LoadingAnimateComponent />
             </div>
